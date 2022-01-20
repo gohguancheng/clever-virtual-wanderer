@@ -5,13 +5,12 @@ import NavigationBar from "./Components/NavigationBar";
 import HomePage from "./Pages/HomePage";
 import AboutPage from "./Pages/AboutPage";
 import GlobePage from "./Pages/GlobePage";
-import QuizPage from "./Pages/QuizPage";
 import CountriesPage from "./Pages/CountriesPage";
-import Country from "./Components/Country";
+import QuizPage from "./Pages/QuizPage";
 import { filterRegionsData } from "./Data_Logic/functions";
 
 const COUNTRY_API_URL =
-  "https://restcountries.com/v3/all?fields=name,subregion,flags,currencies";
+  "https://restcountries.com/v3/all?fields=name,subregion,flags,capital,currencies,car,unMember,population,demonyms,continents,languages";
 
 function App() {
   const [status, setStatus] = useState("App initialised!");
@@ -19,7 +18,6 @@ function App() {
   const [regions, setRegions] = useState([]);
   const [current, setCurrent] = useState({
     country: "",
-
   });
   console.log("current state: ", current);
 
@@ -39,36 +37,39 @@ function App() {
       const availableRegions = filterRegionsData(fullData); //! why can't i put this outside of useEffect?
       setRegions(availableRegions);
     }
-  }, [status])
-
-
-
-  
+  }, [status]);
 
   return (
     <div className="App">
       <NavigationBar status={status} />
       <Routes>
         {/* <Route path="/" element={<NavigationBar status={status} />}> */}
-          <Route path="/" element={<HomePage />} />
-          <Route path="about" element={<AboutPage />} />
-          <Route
-            path="/regions"
-            element={<GlobePage data={fullData} regions={regions} current={current} setCurrent={setCurrent} />}
-          ></Route>
-                    <Route
-            path="/regions/:regionName/countries"
-            element={<CountriesPage data={fullData} current={current} />}
-          ></Route>
-          <Route
-            path="/regions/:regionName/:countryname"
-            element={<QuizPage data={fullData} current={current} setCurrent={setCurrent} />}
-          ></Route>
-          <Route
-            path="/:regionName/:countryName"
-            element={<Country current={current} />}
-          />
-          
+        <Route path="/" element={<HomePage />} />
+        <Route path="about" element={<AboutPage />} />
+        <Route
+          path="/regions"
+          element={
+            <GlobePage
+              data={fullData}
+              regions={regions}
+              current={current}
+              setCurrent={setCurrent}
+            />
+          }
+        ></Route>
+        <Route
+          path="/regions/:regionName/countries"
+          element={<CountriesPage data={fullData} current={current} />}
+        ></Route>
+                <Route
+          path="/:regionName/:countryName"
+          element={
+            <QuizPage
+              data={fullData}
+            />
+          }
+        ></Route>
+
         {/* </Route> */}
 
         {/* <Route path="" element={}></Route> */}
