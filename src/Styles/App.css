@@ -1,0 +1,34 @@
+.App {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-color: #def3f6;
+}
+
+.topnav {
+  background-color: #fdf0c9
+}
+
+.nav {
+  display: inline;
+  padding: 1vmin;
+  font-size: medium;
+}
+
+button {
+  box-sizing: border-box;
+  display: inline;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: #92DE34;
+  width: 25vmin;
+  height: 10vmin;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #025600;
+  background-size: 100% 100%;
+  box-shadow: 0 0 0 7px #92DE34 inset;
+  margin-bottom: 15px;
+}

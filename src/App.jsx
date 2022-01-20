@@ -1,58 +1,80 @@
-import logo from "./logo.svg";
-import "./App.css";
-import { useState, useEffect } from "react";
+import "./Styles/App.css";
+import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import Navigation from "./Navigation";
-import Home from "./Home";
-import About from "./About";
-import Regions from "./Regions";
-import CountryWelcome from "./CountryWelcome";
-import Country from "./Country";
+import NavigationBar from "./Components/NavigationBar";
+import HomePage from "./Pages/HomePage";
+import AboutPage from "./Pages/AboutPage";
+import GlobePage from "./Pages/GlobePage";
+import QuizPage from "./Pages/QuizPage";
+import CountriesPage from "./Pages/CountriesPage";
+import Country from "./Components/Country";
+import { filterRegionsData } from "./Data_Logic/functions";
 
-
+const COUNTRY_API_URL =
+  "https://restcountries.com/v3/all?fields=name,subregion,flags,currencies";
 
 function App() {
+  const [status, setStatus] = useState("App initialised!");
   const [fullData, setFullData] = useState([]);
   const [regions, setRegions] = useState([]);
-  const [countryData, setCountryData] = useState();
-  console.log("render App!");
+  const [current, setCurrent] = useState({
+    country: "",
+
+  });
+  console.log("current state: ", current);
 
   useEffect(() => {
-    fetch("https://restcountries.com/v2/all?fields=name,subregion")
+    setStatus("API data fetch pending..");
+    fetch(COUNTRY_API_URL)
       .then((response) => response.json())
       .then((data) => {
-        const regionObjects = data.map((element) => element.subregion);
-        const regions = regionObjects.filter((element, index, self) => {
-          return index === self.indexOf(element);
-        });
         setFullData(data);
-        setRegions(regions);
-      });
+        setStatus("API data received");
+      })
+      .catch(() => setStatus("No API data received"));
   }, []);
+
+  useEffect(() => {
+    if (status !== "API data fetch pending..") {
+      const availableRegions = filterRegionsData(fullData); //! why can't i put this outside of useEffect?
+      setRegions(availableRegions);
+    }
+  }, [status])
+
+
+
   
-  const updateCountry = (input) => {
-    setCountryData(input);
-  }
 
   return (
     <div className="App">
+      <NavigationBar status={status} />
       <Routes>
-        <Route path="/" element={<Navigation />}>
-          <Route path="/" element={<Home />} />
-          <Route path="about" element={<About />} />
+        {/* <Route path="/" element={<NavigationBar status={status} />}> */}
+          <Route path="/" element={<HomePage />} />
+          <Route path="about" element={<AboutPage />} />
           <Route
             path="/regions"
-            element={<Regions regions={regions} />}
+            element={<GlobePage data={fullData} regions={regions} current={current} setCurrent={setCurrent} />}
           ></Route>
-          <Route path="/regions/:regionName" element={<CountryWelcome data={fullData} handleCountryUpdate={updateCountry} />}></Route>
-          <Route path="/regions/:regionName/quiz/:countryname" element ={<Country countryData={countryData} />} />
-        </Route>
+                    <Route
+            path="/regions/:regionName/countries"
+            element={<CountriesPage data={fullData} current={current} />}
+          ></Route>
+          <Route
+            path="/regions/:regionName/:countryname"
+            element={<QuizPage data={fullData} current={current} setCurrent={setCurrent} />}
+          ></Route>
+          <Route
+            path="/:regionName/:countryName"
+            element={<Country current={current} />}
+          />
+          
+        {/* </Route> */}
 
         {/* <Route path="" element={}></Route> */}
       </Routes>
     </div>
   );
-
 }
 
 export default App;
