@@ -19,7 +19,6 @@ function App() {
   const [current, setCurrent] = useState({
     country: "",
   });
-  // console.log("current state: ", current);
   const [ quizScore, setQuizScore ] = useState(0);
 
   useEffect(() => {
@@ -34,7 +33,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (status !== "API data fetch pending..") {
+    if (status !== "Fetching countries data..") {
       const availableRegions = filterRegionsData(fullData); //! why can't i put this outside of useEffect?
       setRegions(availableRegions);
     }
