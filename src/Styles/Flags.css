@@ -1,5 +1,6 @@
 .flags {
     aspect-ratio: initial;
-    height: 5vh;
-    margin:2.5vmin;
+    height: 6vmin;
+    width: 12vmin;
+    margin:1vmin;
 }

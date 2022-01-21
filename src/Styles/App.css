@@ -4,7 +4,10 @@
   padding: 0;
   background-color: #def3f6;
   height: 100vh;
+  font-family: 'Segoe UI';
+  font-size: 2.4vmin;
 }
+
 
 .topnav {
   background-color: #fdf0c9;
@@ -28,15 +31,15 @@ button {
   outline: none;
   border: none;
   background-color: #92DE34;
-  width: 10em;
-  height: 15vh;
-  border-radius: 30px;
-  font-size: 4vmin;
+  width: 36vmin;
+  height: 12vmin;
+  border-radius: 12vmin;
+  font-size: 3vmin;
   font-weight: 600;
   color: #025600;
   background-size: 100% 100%;
   box-shadow: 0 0 0 7px #92DE34 inset;
-  margin-bottom: 15px;
+  margin: 1.2vmin;
 }
 
 .container {

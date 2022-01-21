@@ -22,14 +22,14 @@ function App() {
   console.log("current state: ", current);
 
   useEffect(() => {
-    setStatus("API data fetch pending..");
+    setStatus("Fetching countries data..");
     fetch(COUNTRY_API_URL)
       .then((response) => response.json())
       .then((data) => {
         setFullData(data);
-        setStatus("API data received");
+        setStatus("Countries data received");
       })
-      .catch(() => setStatus("No API data received"));
+      .catch(() => setStatus("No Countries data received"));
   }, []);
 
   useEffect(() => {

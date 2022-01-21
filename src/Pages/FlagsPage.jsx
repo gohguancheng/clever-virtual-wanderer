@@ -4,8 +4,8 @@ import Flags from "../Components/Flags";
 import '../Styles/FlagsPage.css'
 
 const highlightStyle = {
-  height: "25vh",
-  width: "70vw",
+  height: "30vmin",
+  width: "60vmin",
   border: "1vmin solid limegreen",
   padding: "1vmin",
   boxShadow: "1vmin 2vmin 2vmin limegreen",

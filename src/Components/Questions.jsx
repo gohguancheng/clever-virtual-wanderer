@@ -6,8 +6,8 @@ const Questions = ({ topic, country, answer }) => {
           case "officialName":
             return (
                 <div>
-                    <p> The offical name of {country} is "{answer}"  </p>
-                    <button>True</button><button>False</button>
+                    <p> The offical name of {country} is: "{answer}".  </p>
+                    <button className="question">True</button><button>False</button>
                 </div>
             )
         case "capital":
@@ -49,7 +49,7 @@ const Questions = ({ topic, country, answer }) => {
         case "languages":
             return (
                 <div>
-                    <p>The common language(s) spoken in {country} is/are: {answer}  </p>
+                    <p>The common language(s) spoken in {country} is/are: {answer}.  </p>
                     <button>True</button><button>False</button>
                 </div>
             )
