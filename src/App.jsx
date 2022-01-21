@@ -20,7 +20,7 @@ function App() {
     country: "",
   });
   // console.log("current state: ", current);
-  const [ quizScore, setQuizScore ] = useState();
+  const [ quizScore, setQuizScore ] = useState(0);
 
   useEffect(() => {
     setStatus("Fetching countries data..");

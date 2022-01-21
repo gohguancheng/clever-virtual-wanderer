@@ -47,16 +47,18 @@ const languagesCounter = (obj) => {
 };
 
 export const statsGenerator = (data) => {
-  const officialName = data.name.official;
-  const capital = data.capital[0];
-  const languages = languagesCounter(data.languages);
-  const currenciesSymbol = data.currencies;
+  console.log(data);
+  console.log("data.name.official: ", data.name.official)
+  const officialName = data?.name.official;
+  const capital = data?.capital[0];
+  const languages = languagesCounter(data?.languages);
+  const currenciesSymbol = data?.currencies;
   const currencies = byPropertyInObjOfObj(currenciesSymbol, "name");
-  const demonymsM = data.demonyms.eng.m;
-  const demonymsF = data.demonyms.eng.f;
-  const population = data.population;
-  const isUNMember = data.unMember;
-  const continent = data.continents[0];
+  const demonymsM = data?.demonyms.eng.m;
+  const demonymsF = data?.demonyms.eng.f;
+  const population = data?.population;
+  const isUNMember = data?.unMember;
+  const continent = data?.continents[0];
 
   const result = {
     officialName: officialName,
@@ -76,7 +78,7 @@ export const statsGenerator = (data) => {
 export const doCoinFlip = () => Math.floor(Math.random() * 2) + 1;
 
 export const randomIndexGenerator = (data, compareData) => {
-  const currentIndex = data.map((e) => {return e.capital; }).indexOf(compareData.capital);
+  const currentIndex = data.map((e) => {return e.name.officialName; }).indexOf(compareData.officialName);
   let randomIndex = Math.floor(Math.random() * data.length);
   while (randomIndex === currentIndex) {
     randomIndex = Math.floor(Math.random() * data.length);
@@ -87,7 +89,7 @@ export const randomIndexGenerator = (data, compareData) => {
 export const answerGenerator = (topic, countryData, originalData) => {
   const newObj = {
     topic: topic,
-    answer: "",
+    answer: "no answer generated",
     isTrue: null,
   };
   let result = newObj;
@@ -101,13 +103,13 @@ export const answerGenerator = (topic, countryData, originalData) => {
       answer: countryData[topic],
       isTrue: true,
     };
-    console.log("true answer: ", info.answer)
+    console.log("this is correct: ", info.answer)
   } else {
     info = {
       answer: randomCountryStats[topic],
       isTrue: false,
     };
-    console.log("false answer: ", info.answer)
+    console.log("this is wrong: ", info.answer)
   }
   result = { ...newObj, ...info };
   return result;
