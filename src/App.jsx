@@ -19,7 +19,8 @@ function App() {
   const [current, setCurrent] = useState({
     country: "",
   });
-  console.log("current state: ", current);
+  // console.log("current state: ", current);
+  const [ quizScore, setQuizScore ] = useState();
 
   useEffect(() => {
     setStatus("Fetching countries data..");
@@ -65,7 +66,7 @@ function App() {
           path="/:regionName/:countryName"
           element={
             <QuizPage
-              data={fullData}
+              data={fullData} quizScore ={quizScore} setQuizScore={setQuizScore}
             />
           }
         ></Route>

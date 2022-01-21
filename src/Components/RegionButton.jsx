@@ -7,11 +7,11 @@ import { randomArrayElementSelector } from '../Data_Logic/functions';
 const RegionButton = ({ data, index, region, current, setCurrent }) => {
 
   const handleAssignCountry = (r) => {
-    console.log("clicked region:", r)
+   // console.log("clicked region:", r)
     const countriesByRegion = data.filter((element) => {
       return element.subregion === r;
     });
-    console.log(countriesByRegion);
+   // console.log(countriesByRegion);
     const arrayOfCountries = countriesByRegion.map((element) => {
       return element.name.common;
     });

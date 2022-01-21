@@ -5,7 +5,7 @@ import '../Styles/FlagsPage.css'
 
 const highlightStyle = {
   height: "30vmin",
-  width: "60vmin",
+  width: "auto",
   border: "1vmin solid limegreen",
   padding: "1vmin",
   boxShadow: "1vmin 2vmin 2vmin limegreen",
