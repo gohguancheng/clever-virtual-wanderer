@@ -1,15 +1,17 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import Flags from "../Components/Flags";
+import '../Styles/FlagsPage.css'
 
 const highlightStyle = {
-  height: "30vh",
+  height: "25vh",
+  width: "70vw",
   border: "1vmin solid limegreen",
   padding: "1vmin",
   boxShadow: "1vmin 2vmin 2vmin limegreen",
 };
 
-const CountriesPage = ({ data, current }) => {
+const FlagsPage = ({ data, current }) => {
   const { regionName: currentRegion } = useParams();
   const chosen = data.filter((element) => {
     return element.name.common === current.country;
@@ -30,7 +32,7 @@ const CountriesPage = ({ data, current }) => {
       );
     });
   return (
-    <div>
+    <div className="container" id="flags-page">
       <h4>Your Destination shall be: </h4>
       <h1> {current.country} </h1>      
       <p>
@@ -47,4 +49,4 @@ const CountriesPage = ({ data, current }) => {
   );
 };
 
-export default CountriesPage;
+export default FlagsPage;

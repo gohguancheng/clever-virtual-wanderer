@@ -22,7 +22,7 @@ const RegionButton = ({ data, index, region, current, setCurrent }) => {
 
   return (
     <Link to={`${region}/countries`}>
-    <button className={region} onClick={()=>handleAssignCountry(region)}>
+    <button className="region-button" id={`${region}`} onClick={()=>handleAssignCountry(region)}>
     {index}. {region}
     </button>
     </Link>  

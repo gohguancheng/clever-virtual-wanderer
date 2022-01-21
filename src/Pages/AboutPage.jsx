@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const AboutPage = () => {
   return (
-    <div>
+    <div className="container" id="about-page">
       <h1>About the App</h1>
       <h4 style={{color: "darkgreen"}}>Not all who (virtually) wander are lost..</h4>
       <h3>Be Clever</h3>
@@ -19,7 +19,7 @@ const AboutPage = () => {
         <br />
         we thought perhaps visiting places virtually is a better option for now.{" "}
       </p>
-      <Link to={"/regions"}><button> Click here to start your virtual journey today! </button></Link>
+      <Link to={"/regions"}><button> Start your virtual journey today! </button></Link>
     </div>
   );
 };

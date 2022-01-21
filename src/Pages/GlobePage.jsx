@@ -7,7 +7,8 @@ const GlobePage = ({ data, regions, current, setCurrent }) => {
    // console.log(regions)
   return (
       
-  <div>
+  <div className="container" id="globe-page">
+      <h1>Welcome to the Globe</h1>
       <h3>
       There are {regions.length} regions to choose from.
       </h3>

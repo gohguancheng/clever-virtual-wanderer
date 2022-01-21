@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="container" id="home-page">
       <h1>This is my Home Page</h1>
       <p>Welcome to the clever (virtual) wanderer App.</p>
       <Link to={"/about"}>

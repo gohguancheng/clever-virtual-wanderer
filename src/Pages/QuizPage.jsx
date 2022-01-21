@@ -22,7 +22,7 @@ const QuizPage = ({data}) => {
   const topicSelected = randomArrayElementSelector(TOPICS);
   console.log(countryData);
 
-  return <div>
+  return <div className="container" id="quiz-page">
       <h3>Answer the Below Questions about {countryName}</h3>
       <Questions topic={TOPICS[0]} country={countryName} answer={countryData[TOPICS[0]]} />
       <Questions topic={TOPICS[1]} country={countryName} answer={countryData[TOPICS[1]]} />

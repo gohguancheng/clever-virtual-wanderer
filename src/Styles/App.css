@@ -1,34 +1,44 @@
-.App {
+.App, html {
   text-align: center;
   margin: 0;
   padding: 0;
   background-color: #def3f6;
+  height: 100vh;
 }
 
 .topnav {
-  background-color: #fdf0c9
+  background-color: #fdf0c9;
+  margin:0px;
+  border: 10px black;
+  padding:0.25vmin;
 }
 
 .nav {
   display: inline;
-  padding: 1vmin;
+  padding: 2.5vmin;
   font-size: medium;
+  text-decoration: none;
 }
 
 button {
+  text-decoration: none;
   box-sizing: border-box;
   display: inline;
   cursor: pointer;
   outline: none;
   border: none;
   background-color: #92DE34;
-  width: 25vmin;
-  height: 10vmin;
+  width: 10em;
+  height: 15vh;
   border-radius: 30px;
-  font-size: 1rem;
+  font-size: 4vmin;
   font-weight: 600;
   color: #025600;
   background-size: 100% 100%;
   box-shadow: 0 0 0 7px #92DE34 inset;
   margin-bottom: 15px;
+}
+
+.container {
+  height:100vh;
 }

@@ -5,7 +5,7 @@ import NavigationBar from "./Components/NavigationBar";
 import HomePage from "./Pages/HomePage";
 import AboutPage from "./Pages/AboutPage";
 import GlobePage from "./Pages/GlobePage";
-import CountriesPage from "./Pages/CountriesPage";
+import FlagsPages from "./Pages/FlagsPage";
 import QuizPage from "./Pages/QuizPage";
 import { filterRegionsData } from "./Data_Logic/functions";
 
@@ -59,7 +59,7 @@ function App() {
         ></Route>
         <Route
           path="/regions/:regionName/countries"
-          element={<CountriesPage data={fullData} current={current} />}
+          element={<FlagsPages data={fullData} current={current} />}
         ></Route>
                 <Route
           path="/:regionName/:countryName"
