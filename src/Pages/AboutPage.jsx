@@ -1,23 +1,17 @@
-import React, { useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import PassphraseInput from "../Components/PassphraseInput";
 
-const AboutPage = () => {
-  const [showHint, setShowHint] = useState(false);
-  const passphraseInput = useRef(); //useref returns an object with { current : {value : 'ref - referencedData'} }
+const AboutPage = ({ username }) => {
+  const [passphraseInput, setPassphraseInput] = useState(null);
+  const [isLocked, setIsLocked] = useState(true);
+  
+  useEffect(()=>{
+    (passphraseInput === "icanshowyoutheworld" ? setIsLocked(false) : setIsLocked(true))
+  },[passphraseInput])
+  
 
-  const passphraseChecker = () => {
-
-  }
-
-  const hint = () => {
-    if (showHint) {
-      return <p> Passphrase: "HelloWorld"  </p>
-    } else {
-      return null
-    }
-  }
-  const hintText = hint();
-
+  console.log("render AboutPage")
   return (
     <div className="container" id="about-page">
       <h1>About the App</h1>
@@ -35,17 +29,8 @@ const AboutPage = () => {
         <br />
         we thought perhaps visiting places virtually is a better option for now.{" "}
       </p>
-      <form>
-      <label htmlFor="passphrase"><p>Please enter the case-sensitive secret passphrase.</p></label>
-        <input 
-        ref={passphraseInput}
-        type="text" 
-        placeholder="Enter the secret passphrase"
-        ></input>
-
-        <button id="hint-button" onClick={()=>setShowHint((prev => (prev = !showHint)))}>hint</button> {hintText}
-      <Link to={"/regions"}><button> Start your virtual journey today! </button></Link>
-      </form>
+      <PassphraseInput username={username} setPassphraseInput={setPassphraseInput} />
+      {isLocked ? null : <Link to={"/regions"}><button> Start your virtual journey today! </button></Link>}
     </div>
   );
 };

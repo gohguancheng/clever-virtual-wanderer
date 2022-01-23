@@ -1,30 +1,20 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
+import UsernameInput from "../Components/UsernameInput";
 
-const HomePage = () => {
-  const inputValue = useRef()
-
+const HomePage = ({ setUsername }) => {
+  console.log("render HomePage")
   return (
     <div className="container" id="home-page">
       <h1>This is my Home Page</h1>
       <p>Welcome to the Clever (Virtual) Wanderer App.</p>
-    <form>
-      <label htmlFor="usernameInput"><p>Please tell us you name.</p></label>
-        <input 
-        ref={inputValue}
-        type="text" 
-        placeholder="Your Name Here"
-        ></input>
-
-
-      
-
-      <Link to={"/about"}>
-        <button> Submit </button>
-      </Link>
-    </form>
-
-
+      <UsernameInput setUsername={setUsername} />
+      <br />
+      <div>
+        <Link to={"/about"}>
+          <button> Submit </button>
+        </Link>
+      </div>
     </div>
   );
 };

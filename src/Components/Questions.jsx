@@ -27,7 +27,7 @@ const Questions = ({
 
   const questionTrueClickHandler = () => {
     setShowResults(true);
-    if (answerBank.isTrue) {
+    if (answerBank.isTrue || answerBank.answer===countryData[topic]) {
       setMessage(
         `You got it, the above is true! The answer is "${answerBank.answer}"`
       );

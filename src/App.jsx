@@ -17,10 +17,10 @@ function App() {
   const [fullData, setFullData] = useState([]);
   const [regions, setRegions] = useState([]);
   const [current, setCurrent] = useState({
-    country: "",
   });
   const [quizScore, setQuizScore] = useState(0);
   const [username, setUsername] = useState("")
+  console.log("render App")
 
   useEffect(() => {
     setStatus("Fetching countries data..");
@@ -35,17 +35,17 @@ function App() {
 
   useEffect(() => {
     if (status !== "Fetching countries data..") {
-      const availableRegions = filterRegionsData(fullData); //! why can't i put this outside of useEffect?
+      const availableRegions = filterRegionsData(fullData).sort(); //! why can't i put this outside of useEffect?
       setRegions(availableRegions);
     }
   }, [status]);
 
   return (
     <div className="App">
-      <NavigationBar status={status} />
+      <NavigationBar status={status} current={current} />
       <Routes>
         <Route path="/" element={<HomePage username={username} setUsername={setUsername} />} />
-        <Route path="about" element={<AboutPage />} />
+        <Route path="about" element={<AboutPage username={username} />} />
         <Route
           path="/regions"
           element={
