@@ -19,7 +19,8 @@ function App() {
   const [current, setCurrent] = useState({
     country: "",
   });
-  const [ quizScore, setQuizScore ] = useState(0);
+  const [quizScore, setQuizScore] = useState(0);
+  const [username, setUsername] = useState("")
 
   useEffect(() => {
     setStatus("Fetching countries data..");
@@ -43,8 +44,7 @@ function App() {
     <div className="App">
       <NavigationBar status={status} />
       <Routes>
-        {/* <Route path="/" element={<NavigationBar status={status} />}> */}
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage username={username} setUsername={setUsername} />} />
         <Route path="about" element={<AboutPage />} />
         <Route
           path="/regions"
@@ -54,6 +54,7 @@ function App() {
               regions={regions}
               current={current}
               setCurrent={setCurrent}
+              setQuizScore={setQuizScore}
             />
           }
         ></Route>
@@ -61,17 +62,16 @@ function App() {
           path="/regions/:regionName/countries"
           element={<FlagsPages data={fullData} current={current} />}
         ></Route>
-                <Route
+        <Route
           path="/:regionName/:countryName"
           element={
             <QuizPage
-              data={fullData} quizScore ={quizScore} setQuizScore={setQuizScore}
+              data={fullData}
+              quizScore={quizScore}
+              setQuizScore={setQuizScore}
             />
           }
         ></Route>
-
-        {/* </Route> */}
-
         {/* <Route path="" element={}></Route> */}
       </Routes>
     </div>

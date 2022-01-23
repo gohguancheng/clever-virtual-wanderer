@@ -1,10 +1,11 @@
 import RegionButton from "../Components/RegionButton";
 
-const GlobePage = ({ data, regions, current, setCurrent }) => {
+const GlobePage = ({ data, regions, current, setCurrent, setQuizScore }) => {
     //*map regions buttons
     // { regions } is that same as assigning the value of (regions:value) pair to a new const 'regions' on this page
     const regionButtons = regions.map((element, i) => <RegionButton key={i} data={data} region={element} index={i+1} current={current} setCurrent={setCurrent} />)
    // console.log(regions)
+   setQuizScore(0);
   return (
       
   <div className="container" id="globe-page">
