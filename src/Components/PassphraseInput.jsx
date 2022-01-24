@@ -4,6 +4,7 @@ const PassphraseInput = ({ username, setPassphraseInput }) => {
   const [showHint, setShowHint] = useState(false);
   const [hintText, setHintText] = useState(null);
   
+  
   const input = useRef(); //useRef returns an object with { current : {value : 'ref - referencedData'} }
 
   const passphraseChecker = () => {
@@ -12,7 +13,7 @@ const PassphraseInput = ({ username, setPassphraseInput }) => {
 
   useEffect(() => {
     if (showHint) {
-      setHintText(`Passphrase: "icanshowyoutheworld"`);
+      setHintText(`Passphrase: "${PASSPHRASE}"`);
     } else {
       setHintText(null);
     }

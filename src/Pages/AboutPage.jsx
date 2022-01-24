@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import PassphraseInput from "../Components/PassphraseInput";
+const PASSPHRASE = "icanshowyoutheworld";
 
 const AboutPage = ({ username }) => {
   const [passphraseInput, setPassphraseInput] = useState(null);
   const [isLocked, setIsLocked] = useState(true);
   
   useEffect(()=>{
-    (passphraseInput === "hi" ? setIsLocked(false) : setIsLocked(true))
+    (passphraseInput === PASSPHRASE ? setIsLocked(false) : setIsLocked(true))
   },[passphraseInput])
   
 
@@ -29,7 +30,7 @@ const AboutPage = ({ username }) => {
         <br />
         we thought perhaps visiting places virtually is a better option for now.{" "}
       </p>
-      <PassphraseInput username={username} setPassphraseInput={setPassphraseInput} />
+      <PassphraseInput username={username} setPassphraseInput={setPassphraseInput} PASSPHRASE={PASSPHRASE} />
       {isLocked ? null : <Link to={"/regions"}><button> Start your virtual journey today! </button></Link>}
     </div>
   );
