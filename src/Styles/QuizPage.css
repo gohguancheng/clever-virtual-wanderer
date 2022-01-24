@@ -7,3 +7,11 @@
     color: red;
     background-color: rgb(231, 191, 198);
 }
+
+#correct-click {
+    border: 0.75vmin solid greenyellow;
+}
+
+#wrong-click {
+    border: 0.75vmin solid red;
+}

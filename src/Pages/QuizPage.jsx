@@ -28,7 +28,7 @@ const QuizPage = ({data, quizScore, setQuizScore}) => {
       <h2>Your Score: {quizScore}</h2>
       {arrayOfQuestions}
       <div>
-      {questionsAnswered < 7 ? null : navigate(`/${regionName}/${countryName}/results`)}
+      {questionsAnswered < 7 ? null : setTimeout(navigate(`/${regionName}/${countryName}/results`), 3000)}
       </div>
        </div>;
 };

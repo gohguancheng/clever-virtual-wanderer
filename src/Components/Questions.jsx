@@ -25,7 +25,7 @@ const Questions = ({
     }
   }, [data, countryData, topic, country]);
 
-  const questionTrueClickHandler = () => {
+  const questionTrueClickHandler = (event) => {
     setShowResults(true);
     setQuestionsAnswered(prev => prev+1);
     setButtonDisabled(true);
@@ -36,15 +36,17 @@ const Questions = ({
       setQStyle({color: "green",});
       setQuizScore(prev => prev+1);
       setCorrectClick(true);
+      event.target.id = "correct-click";
     } else {
       setMessage(
         `Sorry, the above is false! The correct answer is in fact "${countryData[topic]}".`
       );
       setQStyle({color: "red",});
       setCorrectClick(false);
+      event.target.id = "wrong-click";
     }
   };
-  const questionFalseClickHandler = () => {
+  const questionFalseClickHandler = (event) => {
     setShowResults(true);
     setQuestionsAnswered(prev => prev+1);
     setButtonDisabled(true);
@@ -55,12 +57,14 @@ const Questions = ({
       setQStyle({color: "red",});
       setQuizScore(prev => prev+1);
       setCorrectClick(true);
+      event.target.id = "correct-click";
     } else {
       setMessage(
         `Sorry, the above is true! "${answerBank.answer}" is actually the correct answer.`
       );
       setQStyle({color: "green",});
       setCorrectClick(false);
+      event.target.id = "wrong-click";
     }
   };
 
