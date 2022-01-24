@@ -51,7 +51,10 @@ const ResultsPage = ({ data, quizScore, current }) => {
           The capital city of {current.country} is: {facts?.capital}.
         </li>
         <li>
-          About {population} million people live in: {current.country}.
+        As of 2021, about {population} million people live in: {current.country}.
+        </li>
+        <li>
+          As of 2021, {current.country} is {facts?.isUNMember ? null : "not"} a member of the United Nations.
         </li>
       </ol>
       <h4>
