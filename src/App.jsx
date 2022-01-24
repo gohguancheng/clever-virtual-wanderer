@@ -7,6 +7,7 @@ import AboutPage from "./Pages/AboutPage";
 import GlobePage from "./Pages/GlobePage";
 import FlagsPages from "./Pages/FlagsPage";
 import QuizPage from "./Pages/QuizPage";
+import ResultsPage from "./Pages/ResultsPage";
 import { filterRegionsData } from "./Data_Logic/functions";
 
 const COUNTRY_API_URL =
@@ -63,12 +64,22 @@ function App() {
           element={<FlagsPages data={fullData} current={current} />}
         ></Route>
         <Route
-          path="/:regionName/:countryName"
+          path="/:regionName/:countryName/quiz"
           element={
             <QuizPage
               data={fullData}
               quizScore={quizScore}
               setQuizScore={setQuizScore}
+            />
+          }
+        ></Route>
+                <Route
+          path="/:regionName/:countryName/results"
+          element={
+            <ResultsPage
+              data={fullData} 
+              quizScore={quizScore}
+              current={current}
             />
           }
         ></Route>

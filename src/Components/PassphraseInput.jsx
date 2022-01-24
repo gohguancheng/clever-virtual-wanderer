@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
-const PassphraseInput = ({ username, setPassphraseInput }) => {
+const PassphraseInput = ({ username, setPassphraseInput, PASSPHRASE }) => {
   const [showHint, setShowHint] = useState(false);
   const [hintText, setHintText] = useState(null);
   

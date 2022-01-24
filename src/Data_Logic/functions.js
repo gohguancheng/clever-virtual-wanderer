@@ -35,7 +35,7 @@ export const TOPICS = [
 export const byPropertyInObjOfObj = (objOfObj, innerProperty) => {
   const array = [];
   for (const prop in objOfObj) {
-    array.push(objOfObj[prop][innerProperty]);
+    array.push(`${objOfObj[prop][innerProperty]} (${prop})`);
   }
   return array.join(" & ");
 };
@@ -107,13 +107,13 @@ export const answerGenerator = (topic, countryData, originalData) => {
       answer: countryData[topic],
       isTrue: true,
     };
-    console.log("this is correct: ", info.answer)
+    // console.log("this is correct: ", info.answer)
   } else {
     info = {
       answer: randomCountryStats[topic],
       isTrue: false,
     };
-    console.log("this is wrong: ", info.answer)
+    // console.log("this is wrong: ", info.answer)
   }
   result = { ...newObj, ...info };
   return result;

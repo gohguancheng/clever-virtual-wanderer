@@ -8,6 +8,7 @@ const Questions = ({
   country,
   quizScore,
   setQuizScore,
+  setQuestionsAnswered,
 }) => {
   const [QStyle, setQStyle] = useState();
   const [correctClick, setCorrectClick] = useState()
@@ -15,8 +16,6 @@ const Questions = ({
   const [message, setMessage] = useState(null);
   const [answerBank, setAnswerBank] = useState({});
   const [buttonDisabled, setButtonDisabled] = useState(false);
-  //   console.log("ini countryData: ", countryData)
-  //   console.log("topic: ", topic);
 
   //* make sure generated bank is not changed during renders
   useEffect(() => {
@@ -28,40 +27,40 @@ const Questions = ({
 
   const questionTrueClickHandler = () => {
     setShowResults(true);
+    setQuestionsAnswered(prev => prev+1);
+    setButtonDisabled(true);
     if (answerBank.isTrue || answerBank.answer===countryData[topic]) {
       setMessage(
-        `You got it, the above is true! The answer is "${answerBank.answer}"`
+        `You got it, the above is true! "${answerBank.answer}" is indeed the correct answer`
       );
       setQStyle({color: "green",});
       setQuizScore(prev => prev+1);
       setCorrectClick(true);
-      setButtonDisabled(true);
     } else {
       setMessage(
-        `Nope, the above is false - the answer is in fact "${countryData[topic]}"`
+        `Sorry, the above is false! The correct answer is in fact "${countryData[topic]}"`
       );
       setQStyle({color: "red",});
       setCorrectClick(false);
-      setButtonDisabled(true);
     }
   };
   const questionFalseClickHandler = () => {
     setShowResults(true);
+    setQuestionsAnswered(prev => prev+1);
+    setButtonDisabled(true);
     if (!answerBank.isTrue) {
       setMessage(
-        `Yes, the above is false - The answer is actually "${countryData[topic]}"`
+        `Yes, the above is false! The correct answer is actually "${countryData[topic]}"`
       );
       setQStyle({color: "red",});
       setQuizScore(prev => prev+1);
       setCorrectClick(true);
-      setButtonDisabled(true);
     } else {
       setMessage(
-        `Nope, the above is true! the answer is actually "${answerBank.answer}"`
+        `Sorry, the above is true! "${answerBank.answer}" is the correct answer.`
       );
       setQStyle({color: "green",});
       setCorrectClick(false);
-      setButtonDisabled(true);
     }
   };
 

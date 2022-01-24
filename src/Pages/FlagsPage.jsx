@@ -40,7 +40,7 @@ const FlagsPage = ({ data, current }) => {
         <br /> Answer carefully, as your quiz score will affect what you see
         later.
       </p>
-      <Link to={`/${current.region}/${current.country}`}>
+      <Link to={`/${current.region}/${current.country}/quiz`}>
         {" "}
         <button> Take the pre-boarding quiz! </button>{" "}
       </Link>

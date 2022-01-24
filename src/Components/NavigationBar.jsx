@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 
 const NavigationBar = ( { status, current } ) => {
-  console.log("nav:", current);
   return <div className = "topnav">
   
     <Link to="/"> <h4 className="nav">Home</h4> </Link> 
