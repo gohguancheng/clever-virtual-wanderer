@@ -23,8 +23,8 @@ const PassphraseInput = ({ username, setPassphraseInput, PASSPHRASE }) => {
     <div>
       <label htmlFor="passphrase">
         <p>
-          Hi there, {username === "" ? "Mystery Traveller" : username}, please
-          enter the case-sensitive secret passphrase.
+          Hi there, {username === "" ? "Mystery Traveller" : username}! 😁 <br/>Please
+          enter the case-sensitive secret passphrase. 🔏
         </p>
       </label>
       <input

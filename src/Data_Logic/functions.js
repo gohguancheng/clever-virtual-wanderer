@@ -107,13 +107,13 @@ export const answerGenerator = (topic, countryData, originalData) => {
       answer: countryData[topic],
       isTrue: true,
     };
-    // console.log("this is correct: ", info.answer)
+
   } else {
     info = {
       answer: randomCountryStats[topic],
       isTrue: false,
     };
-    // console.log("this is wrong: ", info.answer)
+
   }
   result = { ...newObj, ...info };
   return result;
@@ -126,7 +126,7 @@ export const imageLinksArray = (data, qty) => {
     object.link = e?.links?.download;
     return object;
   });
-  const arrayOfImagesLinks = arrayOfObjects?.slice(0, qty);
+  const arrayOfImagesLinks = arrayOfObjects?.slice(0, 2*qty);
 
   return arrayOfImagesLinks;
 };

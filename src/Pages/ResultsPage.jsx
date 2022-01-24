@@ -13,10 +13,6 @@ const ResultsPage = ({ data, quizScore, current }) => {
 
   const imagesURL = imageCall(countryName);
 
-  console.log("fetch API: ", imagesURL);
-  console.log("api fetch status", IMGStatus);
-
-
   useEffect(() => {
     setIMGStatus("Fetching image data..");
     fetch(imagesURL)
@@ -48,15 +44,13 @@ const ResultsPage = ({ data, quizScore, current }) => {
     facts?.population !== undefined
       ? Math.round((facts?.population / 1000000) * 100) / 100
       : null;
-
-  console.log("facts", facts);
   return (
     <div>
-      {IMGStatus}
-      <h1>Welcome to {current.country}.</h1>
+      {(IMGStatus === "images data received") ? null : IMGStatus}
+      <h1>Welcome to {current.country}. 🥳</h1>
       <h4>
         You scored {quizScore} out of 7 in the earlier short pre-boarding quiz
-        for {current.country}!
+        for {current.country}! 🎉
       </h4>
       <h4>Here are some facts about {current.country}:</h4>
       <ol>
@@ -97,9 +91,10 @@ const ResultsPage = ({ data, quizScore, current }) => {
         </li>
       </ol>
       <div>
-        <div>
-          Images of {current.country}
-        </div>
+        <h4>
+          Here are some images (courtesy of 'Unsplash') related to {current.country}!
+          <br /> 2 images displayed for each point earned from the quiz. ({quizScore} X 2 = {quizScore*2} 📷)
+        </h4>
         <ImageDisplay country={current.country} score={quizScore} source={imageLinks} />
       </div>
     </div>

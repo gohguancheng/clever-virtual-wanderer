@@ -9,13 +9,13 @@ const GlobePage = ({ data, regions, current, setCurrent, setQuizScore }) => {
   return (
       
   <div className="container" id="globe-page">
-      <h1>Welcome to the Globe</h1>
+      <h1>Welcome to the Globe 🌐</h1>
       <h3>
-      There are {regions.length} regions to choose from.
+      There are {regions.length} regions to choose from. 🌍🌎🌏
       </h3>
       <p>The App will bring you to a random country in the region you click on.</p>
-      <p>You won't be able to choose which country you'll arrive in.. 
-      <br/>So buckle up, and just enjoy setting forth into the unknown. :) </p>
+      <p>You won't be able to choose which country you'll arrive in.. 🤭
+      <br/>So buckle up, and just enjoy setting forth into the unknown. 😊 </p>
       {regionButtons}
       
   </div>);

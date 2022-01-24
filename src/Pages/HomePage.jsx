@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import UsernameInput from "../Components/UsernameInput";
 
 const HomePage = ({ setUsername }) => {
-  console.log("render HomePage")
   return (
     <div className="container" id="home-page">
-      <h2>Welcome to the Clever (Virtual) Wanderer App.</h2>
+      <h2>Welcome to the Clever (Virtual) Wanderer App</h2>
+      <h1>🌎</h1>
       <UsernameInput setUsername={setUsername} />
       <br />
       <div>

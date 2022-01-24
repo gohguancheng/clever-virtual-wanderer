@@ -37,7 +37,7 @@ const FlagsPage = ({ data, current }) => {
       <h1> {current.country} </h1>      
       <p>
         Let's learn more about {current.country} through a quiz.
-        <br /> Answer carefully, as your quiz score will affect what you see
+        <br />❗Answer carefully, as your quiz score will affect what you see
         later.
       </p>
       <Link to={`/${current.region}/${current.country}/quiz`}>

@@ -17,13 +17,13 @@ const UsernameInput = ({ setUsername }) => {
     <div>
       <form>
         <label htmlFor="usernameInput">
-          <p>What's your name?</p>
+          <p>What's your name, traveller? 👋</p>
         </label>
         <input
           onChange={updateName}
           ref={input}
           type="text"
-          placeholder="Your Name Here"
+          placeholder="Enter Your Name Here"
         ></input>
       </form>
       <br />

@@ -10,7 +10,7 @@ const Questions = ({
   setQuizScore,
   setQuestionsAnswered,
 }) => {
-  const [QStyle, setQStyle] = useState();
+  const [QStyle, setQStyle] = useState({color: "navy"});
   const [correctClick, setCorrectClick] = useState()
   const [showResults, setShowResults] = useState(false);
   const [message, setMessage] = useState(null);

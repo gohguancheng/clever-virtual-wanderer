@@ -21,7 +21,6 @@ function App() {
   });
   const [quizScore, setQuizScore] = useState(0);
   const [username, setUsername] = useState("")
-  console.log("render App")
 
   useEffect(() => {
     setStatus("Fetching countries data..");

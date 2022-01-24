@@ -11,7 +11,7 @@ const QuizPage = ({data, quizScore, setQuizScore}) => {
   const [questionsAnswered, setQuestionsAnswered] = useState(0);
   const navigate = useNavigate();
 
-  if (questionsAnswered === 7) setTimeout(()=>navigate(`/${regionName}/${countryName}/results`), 2000);
+  if (questionsAnswered === 7) setTimeout(()=>navigate(`/${regionName}/${countryName}/results`), 1000);
 
   useEffect(() => {
     const selectedCountryFullData = data.filter((e) => e.name.common === countryName);
@@ -24,8 +24,8 @@ const QuizPage = ({data, quizScore, setQuizScore}) => {
   }))
 
   return <div className="container" id="quiz-page">
-      <h2>Answer the Below Questions about {countryName}</h2>
-      <h2>Your Score: {quizScore}</h2>
+      <h3>Answer all the Below Questions about {countryName}.</h3>
+      <h3>Your Score: {quizScore}</h3>
       {arrayOfQuestions}
        </div>;
 };
