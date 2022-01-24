@@ -31,14 +31,14 @@ const Questions = ({
     setButtonDisabled(true);
     if (answerBank.isTrue || answerBank.answer===countryData[topic]) {
       setMessage(
-        `You got it, the above is true! "${answerBank.answer}" is indeed the correct answer`
+        `You got it, the above is true! "${answerBank.answer}" is indeed the correct answer.`
       );
       setQStyle({color: "green",});
       setQuizScore(prev => prev+1);
       setCorrectClick(true);
     } else {
       setMessage(
-        `Sorry, the above is false! The correct answer is in fact "${countryData[topic]}"`
+        `Sorry, the above is false! The correct answer is in fact "${countryData[topic]}".`
       );
       setQStyle({color: "red",});
       setCorrectClick(false);
@@ -50,14 +50,14 @@ const Questions = ({
     setButtonDisabled(true);
     if (!answerBank.isTrue) {
       setMessage(
-        `Yes, the above is false! The correct answer is actually "${countryData[topic]}"`
+        `Yes, the above is false! The correct answer is actually "${countryData[topic]}".`
       );
       setQStyle({color: "red",});
       setQuizScore(prev => prev+1);
       setCorrectClick(true);
     } else {
       setMessage(
-        `Sorry, the above is true! "${answerBank.answer}" is the correct answer.`
+        `Sorry, the above is true! "${answerBank.answer}" is actually the correct answer.`
       );
       setQStyle({color: "green",});
       setCorrectClick(false);
@@ -155,7 +155,7 @@ const Questions = ({
       return (
         <div>
           <h4 style={QStyle}>
-            {answerBank.answer} is the continent that {country} is situated on.{" "}
+            {country} is situated on the continent of: {answerBank.answer}.{" "}
           </h4>
           <p className={correctClick ? "correct-ans" : "wrong-ans"}>{message}</p>
           <button disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>

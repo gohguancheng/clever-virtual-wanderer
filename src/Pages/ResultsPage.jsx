@@ -23,6 +23,11 @@ const ResultsPage = ({ data, quizScore, current }) => {
   return (
     <div>
       <h1>Welcome to {current.country}.</h1>
+      <h4>
+        You scored {quizScore} out of 7 in the earlier short pre-boarding quiz
+        for {current.country}!
+      </h4>
+      <h4>Here are some facts about {current.country}:</h4>
       <ol>
         <li>
           The official name of {current.country} is: "{facts?.officialName}".
@@ -57,10 +62,7 @@ const ResultsPage = ({ data, quizScore, current }) => {
           As of 2021, {current.country} is {facts?.isUNMember ? null : "not"} a member of the United Nations.
         </li>
       </ol>
-      <h4>
-        You scored {quizScore} out of 7 in the earlier short pre-boarding quiz
-        for {current.country}!
-      </h4>
+
     </div>
   );
 };
