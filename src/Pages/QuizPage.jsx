@@ -11,6 +11,7 @@ const QuizPage = ({data, quizScore, setQuizScore}) => {
   const [questionsAnswered, setQuestionsAnswered] = useState(0);
   const navigate = useNavigate();
 
+  if (questionsAnswered === 7) setTimeout(()=>navigate(`/${regionName}/${countryName}/results`), 3000);
 
 
   useEffect(() => {
@@ -27,9 +28,6 @@ const QuizPage = ({data, quizScore, setQuizScore}) => {
       <h2>Answer the Below Questions about {countryName}</h2>
       <h2>Your Score: {quizScore}</h2>
       {arrayOfQuestions}
-      <div>
-      {questionsAnswered < 7 ? null : setTimeout(navigate(`/${regionName}/${countryName}/results`), 3000)}
-      </div>
        </div>;
 };
 export default QuizPage;
