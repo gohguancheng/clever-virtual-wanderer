@@ -20,7 +20,7 @@ const AboutPage = ({ username }) => {
       <h3>Be Clever</h3>
       <p>
         {" "}
-        Contextual knowledge improves the experiences of the place we visit.
+        Contextual knowledge enhances our experiences of the place(s) we visit.
         <br /> Your knowledge determines how much you see.{" "}
       </p>
       <h3>Go Virtual</h3>

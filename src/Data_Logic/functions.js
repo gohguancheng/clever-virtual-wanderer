@@ -1,5 +1,3 @@
-
-
 export const filterRegionsData = (data) => {
   let output = null;
   if (data !== null) {
@@ -19,8 +17,8 @@ export const randomArrayElementSelector = (array) => {
 };
 
 export const TOPICS = [
-  "officialName", 
-  "continents", 
+  "officialName",
+  "continents",
   "capital",
   "languages",
   "currencies",
@@ -28,8 +26,6 @@ export const TOPICS = [
   "femaleCitizen",
   // "population",
   // "isUNMember",
-  
-  
 ];
 
 export const byPropertyInObjOfObj = (objOfObj, innerProperty) => {
@@ -78,13 +74,17 @@ export const statsGenerator = (data) => {
 export const doCoinFlip = () => Math.floor(Math.random() * 2) + 1;
 
 export const randomIndexGenerator = (data, compareData) => {
-  const currentIndex = data.map((e) => {return e.name.officialName; }).indexOf(compareData.officialName);
+  const currentIndex = data
+    .map((e) => {
+      return e.name.officialName;
+    })
+    .indexOf(compareData.officialName);
   let randomIndex = Math.floor(Math.random() * data.length);
   while (randomIndex === currentIndex) {
     randomIndex = Math.floor(Math.random() * data.length);
   }
   return randomIndex;
-}
+};
 
 export const answerGenerator = (topic, countryData, originalData) => {
   const newObj = {
@@ -102,7 +102,7 @@ export const answerGenerator = (topic, countryData, originalData) => {
   }
   let info;
 
-  if (coinFlip === 1 ) {
+  if (coinFlip === 1) {
     info = {
       answer: countryData[topic],
       isTrue: true,
@@ -117,4 +117,18 @@ export const answerGenerator = (topic, countryData, originalData) => {
   }
   result = { ...newObj, ...info };
   return result;
+};
+
+export const imageLinksArray = (data, qty) => {
+  console.log('data: ',data);
+  const arrayOfObjects = data?.results.map((e, i) => {
+    const object = {};
+    object.url = e.urls.small;
+    object.link = e.links.download;
+    return object;
+  });
+  console.log("links: ",arrayOfObjects)
+  const arrayOfImagesLinks = arrayOfObjects?.slice(0, qty);
+
+  return arrayOfImagesLinks;
 };

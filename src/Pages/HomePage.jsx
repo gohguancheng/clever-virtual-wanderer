@@ -6,8 +6,7 @@ const HomePage = ({ setUsername }) => {
   console.log("render HomePage")
   return (
     <div className="container" id="home-page">
-      <h1>This is my Home Page</h1>
-      <p>Welcome to the Clever (Virtual) Wanderer App.</p>
+      <h2>Welcome to the Clever (Virtual) Wanderer App.</h2>
       <UsernameInput setUsername={setUsername} />
       <br />
       <div>
