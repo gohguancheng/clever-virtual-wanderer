@@ -120,14 +120,12 @@ export const answerGenerator = (topic, countryData, originalData) => {
 };
 
 export const imageLinksArray = (data, qty) => {
-  console.log('data: ',data);
-  const arrayOfObjects = data?.results.map((e, i) => {
+  const arrayOfObjects = data?.results?.map((e, i) => {
     const object = {};
-    object.url = e.urls.small;
-    object.link = e.links.download;
+    object.url = e?.urls?.small;
+    object.link = e?.links?.download;
     return object;
   });
-  console.log("links: ",arrayOfObjects)
   const arrayOfImagesLinks = arrayOfObjects?.slice(0, qty);
 
   return arrayOfImagesLinks;

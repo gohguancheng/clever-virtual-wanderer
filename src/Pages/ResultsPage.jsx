@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ImageDisplay from "../Components/ImageDisplay";
 import { statsGenerator, imageLinksArray } from "../Data_Logic/functions";
-import { imageCall } from '../../credentials';
+import { imageCall } from '../Data_Logic/credentials';
 import { useParams } from "react-router-dom";
 
 const ResultsPage = ({ data, quizScore, current }) => {
