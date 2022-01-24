@@ -7,7 +7,7 @@ const AboutPage = ({ username }) => {
   const [isLocked, setIsLocked] = useState(true);
   
   useEffect(()=>{
-    (passphraseInput === "icanshowyoutheworld" ? setIsLocked(false) : setIsLocked(true))
+    (passphraseInput === "hi" ? setIsLocked(false) : setIsLocked(true))
   },[passphraseInput])
   
 

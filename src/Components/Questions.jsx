@@ -14,6 +14,7 @@ const Questions = ({
   const [showResults, setShowResults] = useState(false);
   const [message, setMessage] = useState(null);
   const [answerBank, setAnswerBank] = useState({});
+  const [buttonDisabled, setButtonDisabled] = useState(false);
   //   console.log("ini countryData: ", countryData)
   //   console.log("topic: ", topic);
 
@@ -34,12 +35,14 @@ const Questions = ({
       setQStyle({color: "green",});
       setQuizScore(prev => prev+1);
       setCorrectClick(true);
+      setButtonDisabled(true);
     } else {
       setMessage(
         `Nope, the above is false - the answer is in fact "${countryData[topic]}"`
       );
       setQStyle({color: "red",});
       setCorrectClick(false);
+      setButtonDisabled(true);
     }
   };
   const questionFalseClickHandler = () => {
@@ -51,12 +54,14 @@ const Questions = ({
       setQStyle({color: "red",});
       setQuizScore(prev => prev+1);
       setCorrectClick(true);
+      setButtonDisabled(true);
     } else {
       setMessage(
         `Nope, the above is true! the answer is actually "${answerBank.answer}"`
       );
       setQStyle({color: "green",});
       setCorrectClick(false);
+      setButtonDisabled(true);
     }
   };
 
@@ -69,8 +74,8 @@ const Questions = ({
             The official name of {country} is: "{answerBank.answer}".{" "}
           </h4>
           <p className={correctClick ? "correct-ans" : "wrong-ans"}>{message}</p>
-          <button onClick={questionTrueClickHandler}>True</button>
-          <button onClick={questionFalseClickHandler}>False</button>
+          <button disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>
+          <button disabled={buttonDisabled} onClick={questionFalseClickHandler}>False</button>
         </div>
       );
       break;
@@ -81,8 +86,8 @@ const Questions = ({
             The capital city of {country} is: {answerBank.answer}.{" "}
           </h4>
           <p className={correctClick ? "correct-ans" : "wrong-ans"}>{message}</p>
-          <button onClick={questionTrueClickHandler}>True</button>
-          <button onClick={questionFalseClickHandler}>False</button>
+          <button disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>
+          <button disabled={buttonDisabled} onClick={questionFalseClickHandler}>False</button>
         </div>
       );
       break;
@@ -93,8 +98,8 @@ const Questions = ({
             The currency(/ies) used in {country} is/are: {answerBank.answer}.{" "}
           </h4>
           <p className={correctClick ? "correct-ans" : "wrong-ans"}>{message}</p>
-          <button onClick={questionTrueClickHandler}>True</button>
-          <button onClick={questionFalseClickHandler}>False</button>
+          <button disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>
+          <button disabled={buttonDisabled} onClick={questionFalseClickHandler}>False</button>
         </div>
       );
       break;
@@ -105,8 +110,8 @@ const Questions = ({
             A male citizen of {country} known as a(n): {answerBank.answer}.{" "}
           </h4>
           <p className={correctClick ? "correct-ans" : "wrong-ans"}>{message}</p>
-          <button onClick={questionTrueClickHandler}>True</button>
-          <button onClick={questionFalseClickHandler}>False</button>
+          <button disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>
+          <button disabled={buttonDisabled} onClick={questionFalseClickHandler}>False</button>
         </div>
       );
       break;
@@ -117,8 +122,8 @@ const Questions = ({
             A female citizen of {country} known as a(n): {answerBank.answer}.{" "}
           </h4>
           <p className={correctClick ? "correct-ans" : "wrong-ans"}>{message}</p>
-          <button onClick={questionTrueClickHandler}>True</button>
-          <button onClick={questionFalseClickHandler}>False</button>
+          <button disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>
+          <button disabled={buttonDisabled} onClick={questionFalseClickHandler}>False</button>
         </div>
       );
       break;
@@ -129,8 +134,8 @@ const Questions = ({
             The approx. population of {country} is {answerBank.answer} people.{" "}
           </h4>
           <p className={correctClick ? "correct-ans" : "wrong-ans"}>{message}</p>
-          <button onClick={questionTrueClickHandler}>True</button>
-          <button onClick={questionFalseClickHandler}>False</button>
+          <button disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>
+          <button disabled={buttonDisabled} onClick={questionFalseClickHandler}>False</button>
         </div>
       );
       break;
@@ -142,8 +147,8 @@ const Questions = ({
             {answerBank.answer}.{" "}
           </h4>
           <p className={correctClick ? "correct-ans" : "wrong-ans"}>{message}</p>
-          <button onClick={questionTrueClickHandler}>True</button>
-          <button onClick={questionFalseClickHandler}>False</button>
+          <button disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>
+          <button disabled={buttonDisabled} onClick={questionFalseClickHandler}>False</button>
         </div>
       );
       break;
@@ -154,8 +159,8 @@ const Questions = ({
             {answerBank.answer} is the continent that {country} is situated on.{" "}
           </h4>
           <p className={correctClick ? "correct-ans" : "wrong-ans"}>{message}</p>
-          <button onClick={questionTrueClickHandler}>True</button>
-          <button onClick={questionFalseClickHandler}>False</button>
+          <button disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>
+          <button disabled={buttonDisabled} onClick={questionFalseClickHandler}>False</button>
         </div>
       );
     default:

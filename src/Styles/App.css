@@ -23,7 +23,7 @@
   text-decoration: none;
 }
 
-button {
+.region-button {
   text-decoration: none;
   box-sizing: border-box;
   display: inline;
@@ -31,10 +31,10 @@ button {
   outline: none;
   border: none;
   background-color: #92DE34;
-  width: 36vmin;
-  height: 12vmin;
+  width: 30vmin;
+  height: 10vmin;
   border-radius: 12vmin;
-  font-size: 3vmin;
+  font-size: 2.7vmin;
   font-weight: 600;
   color: #025600;
   background-size: 100% 100%;

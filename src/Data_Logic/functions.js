@@ -20,14 +20,16 @@ export const randomArrayElementSelector = (array) => {
 
 export const TOPICS = [
   "officialName", 
+  "continents", 
   "capital",
+  "languages",
   "currencies",
   "maleCitizen",
   "femaleCitizen",
-  "population",
-  "isUNMember",
-  "continents",
-  "languages",
+  // "population",
+  // "isUNMember",
+  
+  
 ];
 
 export const byPropertyInObjOfObj = (objOfObj, innerProperty) => {
@@ -47,8 +49,6 @@ const languagesCounter = (obj) => {
 };
 
 export const statsGenerator = (data) => {
-  console.log(data);
-  console.log("data.name.official: ", data.name.official)
   const officialName = data?.name.official;
   const capital = data?.capital[0];
   const languages = languagesCounter(data?.languages);
@@ -58,7 +58,7 @@ export const statsGenerator = (data) => {
   const demonymsF = data?.demonyms.eng.f;
   const population = data?.population;
   const isUNMember = data?.unMember;
-  const continent = data?.continents[0];
+  const continents = data?.continents.join(" & ");
 
   const result = {
     officialName: officialName,
@@ -69,7 +69,7 @@ export const statsGenerator = (data) => {
     femaleCitizen: demonymsF,
     population: population,
     isUNMember: isUNMember,
-    continent: continent,
+    continents: continents,
   };
 
   return result;
@@ -94,8 +94,12 @@ export const answerGenerator = (topic, countryData, originalData) => {
   };
   let result = newObj;
   const coinFlip = doCoinFlip();
-  const randomIndex = randomIndexGenerator(originalData, countryData)
-  const randomCountryStats = statsGenerator(originalData[randomIndex])
+  let randomIndex = randomIndexGenerator(originalData, countryData);
+  let randomCountryStats = statsGenerator(originalData[randomIndex]);
+  while (randomCountryStats === undefined || randomCountryStats === "") {
+    randomIndex = randomIndexGenerator(originalData, countryData);
+    randomCountryStats = statsGenerator(originalData[randomIndex]);
+  }
   let info;
 
   if (coinFlip === 1 ) {

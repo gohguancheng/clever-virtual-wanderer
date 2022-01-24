@@ -10,23 +10,19 @@ const QuizPage = ({data, quizScore, setQuizScore}) => {
   const [countryData, setCountryData] = useState({});
 
   useEffect(() => {
-    // console.log("chosen country: ", countryName);
     const selectedCountryFullData = data.filter((e) => e.name.common === countryName);
     const localData = statsGenerator(selectedCountryFullData[0]);
-    // console.log("localData: ", localData);
     setCountryData(localData);
   }, [data, countryName])
 
-  // console.log("QuizPage - countryData: ", countryData)
+  const arrayOfQuestions = TOPICS.map(((element, i) => {
+    return <Questions key={i} countryData={countryData} data={data} topic={element} country={countryName} quizScore={quizScore} setQuizScore={setQuizScore} />
+  }))
+
   return <div className="container" id="quiz-page">
       <h2>Answer the Below Questions about {countryName}</h2>
       <h2>Your Score: {quizScore}</h2>
-      <Questions countryData={countryData} data={data} topic={TOPICS[0]} country={countryName} quizScore={quizScore} setQuizScore={setQuizScore} />
-      <Questions countryData={countryData} data={data} topic={TOPICS[1]} country={countryName} quizScore={quizScore} setQuizScore={setQuizScore} />
-      <Questions countryData={countryData} data={data} topic={TOPICS[8]} country={countryName} quizScore={quizScore} setQuizScore={setQuizScore} />
-      <Questions countryData={countryData} data={data} topic={TOPICS[2]} country={countryName} quizScore={quizScore} setQuizScore={setQuizScore} />
-      <Questions countryData={countryData} data={data} topic={TOPICS[4]} country={countryName} quizScore={quizScore} setQuizScore={setQuizScore} />
-      <Questions countryData={countryData} data={data} topic={TOPICS[3]} country={countryName} quizScore={quizScore} setQuizScore={setQuizScore} />
+      {arrayOfQuestions}
        </div>;
 };
 
