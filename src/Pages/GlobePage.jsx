@@ -1,4 +1,5 @@
 import RegionButton from "../Components/RegionButton";
+import '../Styles/GlobePage.css'
 
 const GlobePage = ({ data, regions, current, setCurrent, setQuizScore, username }) => {
     //*map regions buttons

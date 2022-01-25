@@ -3,13 +3,14 @@ import { Link, Outlet } from 'react-router-dom';
 
 const NavigationBar = ( { status, current } ) => {
   return <div className = "topnav">
-  
-    <Link to="/"> <h4 className="nav">🏡 Home</h4> </Link> 
-      <Link to="about"> <h4 className="nav">❔ About</h4> </Link> 
-      {(current.country === undefined) ? null : (<Link to="regions"> <h4 className="nav">🌐 Globe</h4> </Link>)}
-      <h4>⚒️ Data Status: {status} </h4> 
-      {/* <Outlet /> */}
+  <ul className='flex justify-center'>
 
+    <Link to="/"> <li className="bg-amber-300 rounded-lg p-1 text-sm m-2 text-blue-600 hover:text-blue-600">🏡 Home</li> </Link> 
+      <Link to="about"> <li className="bg-amber-300 rounded-lg p-1 text-sm m-2 text-blue-600 hover:text-blue-600">❔ About</li> </Link> 
+      {(current.country === undefined) ? null : (<Link to="regions"> <li className="bg-amber-300 rounded-lg p-1 text-sm m-2 text-blue-600 hover:text-blue-600">🌐 Globe</li> </Link>)}
+      
+  </ul>
+  <h4>⚒️ Data Status: {status} </h4> 
   </div>;
 };
 

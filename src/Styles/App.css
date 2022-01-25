@@ -23,25 +23,19 @@
   text-decoration: none;
 }
 
-.region-button {
-  text-decoration: none;
-  box-sizing: border-box;
-  display: inline;
-  cursor: pointer;
-  outline: none;
-  border: none;
-  background-color: #92DE34;
-  width: 30vmin;
-  height: 10vmin;
-  border-radius: 12vmin;
-  font-size: 2.7vmin;
-  font-weight: 600;
-  color: #025600;
-  background-size: 100% 100%;
-  box-shadow: 0 0 0 7px #92DE34 inset;
-  margin: 1.2vmin;
-}
-
 .container {
   height:100vh;
+}
+
+button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
