@@ -71,105 +71,105 @@ const Questions = ({
   switch (topic) {
     case "officialName":
       return (
-        <div className="question">
-          <h4 style={QStyle}>
+        <div className="m-2">
+          <h4 className="m-2 text-lg" style={QStyle}>
             {" "}
             The official name of {country} is: "{answerBank.answer}".{" "}
           </h4>
-          <p className={correctClick ? "correct-ans" : "wrong-ans"}>{message}</p>
-          <button disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>
-          <button disabled={buttonDisabled} onClick={questionFalseClickHandler}>False</button>
+          <p className={`m-2 text-base ${correctClick ? "text-green-600 bg-lime-200" : "text-red-800 bg-rose-200"}`}>{message}</p>
+          <button className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-b-4 border-green-700 hover:border-green-500 rounded mx-4" disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>
+          <button className="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded mx-4" disabled={buttonDisabled} onClick={questionFalseClickHandler}>False</button>
         </div>
       );
       break;
     case "capital":
       return (
         <div>
-          <h4 style={QStyle}>
+          <h4 className="m-2 text-lg" style={QStyle}>
             The capital city of {country} is: {answerBank.answer}.{" "}
           </h4>
-          <p className={correctClick ? "correct-ans" : "wrong-ans"}>{message}</p>
-          <button disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>
-          <button disabled={buttonDisabled} onClick={questionFalseClickHandler}>False</button>
+          <p className={`m-2 text-base ${correctClick ? "text-green-600 bg-lime-200" : "text-red-800 bg-rose-200"}`}>{message}</p>
+          <button className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-b-4 border-green-700 hover:border-green-500 rounded mx-4" disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>
+          <button className="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded mx-4" disabled={buttonDisabled} onClick={questionFalseClickHandler}>False</button>
         </div>
       );
       break;
     case "currencies":
       return (
         <div>
-          <h4 style={QStyle}>
+          <h4 className="m-2 text-lg" style={QStyle}>
             The currency(/ies) used in {country} is/are: {answerBank.answer}.{" "}
           </h4>
-          <p className={correctClick ? "correct-ans" : "wrong-ans"}>{message}</p>
-          <button disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>
-          <button disabled={buttonDisabled} onClick={questionFalseClickHandler}>False</button>
+          <p className={`m-2 text-base ${correctClick ? "text-green-600 bg-lime-200" : "text-red-800 bg-rose-200"}`}>{message}</p>
+          <button className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-b-4 border-green-700 hover:border-green-500 rounded mx-4" disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>
+          <button className="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded mx-4" disabled={buttonDisabled} onClick={questionFalseClickHandler}>False</button>
         </div>
       );
       break;
     case "maleCitizen":
       return (
         <div>
-          <h4 style={QStyle}>
+          <h4 className="m-2 text-lg" style={QStyle}>
             A male citizen of {country} known as a(n): {answerBank.answer}.{" "}
           </h4>
-          <p className={correctClick ? "correct-ans" : "wrong-ans"}>{message}</p>
-          <button disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>
-          <button disabled={buttonDisabled} onClick={questionFalseClickHandler}>False</button>
+          <p className={`m-2 text-base ${correctClick ? "text-green-800 bg-lime-200" : "text-red-800 bg-rose-200"}`}>{message}</p>
+          <button className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-b-4 border-green-700 hover:border-green-500 rounded mx-4" disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>
+          <button className="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded mx-4" disabled={buttonDisabled} onClick={questionFalseClickHandler}>False</button>
         </div>
       );
       break;
     case "femaleCitizen":
       return (
         <div>
-          <h4 style={QStyle}>
+          <h4 className="m-2 text-lg" style={QStyle}>
             A female citizen of {country} known as a(n): {answerBank.answer}.{" "}
           </h4>
-          <p className={correctClick ? "correct-ans" : "wrong-ans"}>{message}</p>
-          <button disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>
-          <button disabled={buttonDisabled} onClick={questionFalseClickHandler}>False</button>
+          <p className={`m-2 text-base ${correctClick ? "text-green-600 bg-lime-200" : "text-red-800 bg-rose-200"}`}>{message}</p>
+          <button className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-b-4 border-green-700 hover:border-green-500 rounded mx-4" disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>
+          <button className="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded mx-4" disabled={buttonDisabled} onClick={questionFalseClickHandler}>False</button>
         </div>
       );
       break;
     case "population":
       return (
         <div>
-          <h4 style={QStyle}>
+          <h4 className="m-2 text-lg" style={QStyle}>
             The approx. population of {country} is {answerBank.answer} people.{" "}
           </h4>
-          <p className={correctClick ? "correct-ans" : "wrong-ans"}>{message}</p>
-          <button disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>
-          <button disabled={buttonDisabled} onClick={questionFalseClickHandler}>False</button>
+          <p className={`m-2 text-base ${correctClick ? "text-green-600 bg-lime-200" : "text-red-800 bg-rose-200"}`}>{message}</p>
+          <button className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-b-4 border-green-700 hover:border-green-500 rounded mx-4" disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>
+          <button className="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded mx-4" disabled={buttonDisabled} onClick={questionFalseClickHandler}>False</button>
         </div>
       );
       break;
     case "languages":
       return (
         <div>
-          <h4 style={QStyle}>
+          <h4 className="m-2 text-lg" style={QStyle}>
             The common language(s) spoken in {country} is/are:{" "}
             {answerBank.answer}.{" "}
           </h4>
-          <p className={correctClick ? "correct-ans" : "wrong-ans"}>{message}</p>
-          <button disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>
-          <button disabled={buttonDisabled} onClick={questionFalseClickHandler}>False</button>
+          <p className={`m-2 text-base ${correctClick ? "text-green-600 bg-lime-200" : "text-red-800 bg-rose-200"}`}>{message}</p>
+          <button className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-b-4 border-green-700 hover:border-green-500 rounded mx-4" disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>
+          <button className="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded mx-4" disabled={buttonDisabled} onClick={questionFalseClickHandler}>False</button>
         </div>
       );
       break;
     case "continents":
       return (
         <div>
-          <h4 style={QStyle}>
+          <h4 className="m-2 text-lg" style={QStyle}>
             {country} is situated on the continent of: {answerBank.answer}.{" "}
           </h4>
-          <p className={correctClick ? "correct-ans" : "wrong-ans"}>{message}</p>
-          <button disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>
-          <button disabled={buttonDisabled} onClick={questionFalseClickHandler}>False</button>
+          <p className={`m-2 text-base ${correctClick ? "text-green-600 bg-lime-200" : "text-red-800 bg-rose-200"}`}>{message}</p>
+          <button className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-b-4 border-green-700 hover:border-green-500 rounded mx-4" disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>
+          <button className="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded mx-4" disabled={buttonDisabled} onClick={questionFalseClickHandler}>False</button>
         </div>
       );
     default:
       return (
         <div>
-          <h4>Nothing generated.</h4>
+          <h4 className="m-2 text-lg">Nothing generated.</h4>
         </div>
       );
   }

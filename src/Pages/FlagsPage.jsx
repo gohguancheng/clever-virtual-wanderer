@@ -33,18 +33,20 @@ const FlagsPage = ({ data, current }) => {
     });
   return (
     <div className="container" id="flags-page">
-      <h4>Your Destination shall be: </h4>
-      <h1> {current.country} </h1>      
-      <p>
+      <h4 className="m-5 text-2xl font-bold">Your Destination shall be: </h4>
+      <h1 className="m-5 text-4xl font-bold"> {current.country} </h1>      
+      <p className="text-sm">
         Let's learn more about {current.country} through a quiz.
         <br />❗Answer carefully, as your quiz score will affect what you see
         later.
       </p>
+      <div className="m-5">
       <Link to={`/${current.region}/${current.country}/quiz`}>
         {" "}
-        <button> Take the pre-boarding quiz! </button>{" "}
+        <button className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-b-4 border-green-700 hover:border-green-500 rounded"> Take the pre-boarding quiz! </button>{" "}
       </Link>
-      <div>{flags}</div>
+      </div>
+      <div >{flags}</div>
     </div>
   );
 };

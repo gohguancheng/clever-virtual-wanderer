@@ -24,7 +24,7 @@ const UsernameInput = ({ setUsername }) => {
           <p className="m-5 text-xl font-semibold">What's your name, traveller? 👋</p>
         </label>
         <input 
-          className="shadow appearance-none border rounded w-100 py-1 px-8 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          className="shadow appearance-none border rounded w-100 py-1 px-8 text-gray-700 leading-tight text-center focus:outline-none focus:shadow-outline"
           onChange={updateName}
           ref={input}
           type="text"
@@ -32,7 +32,7 @@ const UsernameInput = ({ setUsername }) => {
         ></input>
       </form>
       <br />
-      <div>Name Recorded: "{user}"</div>
+      <div className="text-base">Your Name: <span className="font-semibold underline">{user}</span></div>
     </div>
   );
 };

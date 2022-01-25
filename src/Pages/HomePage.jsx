@@ -4,9 +4,9 @@ import UsernameInput from '../Components/UsernameInput';
 
 const HomePage = ({ setUsername }) => {
   return (
-    <div className="container" id="home-page">
-      <h2 className="m-5 text-2xl font-bold">Welcome to the Clever (Virtual) Wanderer App</h2>
-      <h1 className="m-5 text-8xl">🌎</h1>
+    <div>
+      <h1 className="m-5 text-2xl font-bold">Welcome to the Clever (Virtual) Wanderer App</h1>
+      <h1 className="m-5 text-9xl">🌎</h1>
       <UsernameInput setUsername={setUsername} />
       <br />
       <div>

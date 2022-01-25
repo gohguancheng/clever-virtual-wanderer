@@ -1,3 +1,7 @@
+/* * {
+  outline: 1px solid black;
+} */
+
 .App, html {
   text-align: center;
   margin: 0;
@@ -6,26 +10,10 @@
   height: 100vh;
   font-family: 'Garamond';
   font-size: 2.4vmin;
+  
 }
 
 
-.topnav {
-  background-color: #fdf0c9;
-  margin:0px;
-  border: 10px black;
-  padding:0.25vmin;
-}
-
-.nav {
-  display: inline;
-  padding: 2.5vmin;
-  font-size: medium;
-  text-decoration: none;
-}
-
-.container {
-  height:100vh;
-}
 
 button {
   background-color: #4CAF50;

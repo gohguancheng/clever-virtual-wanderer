@@ -11,16 +11,15 @@ const GlobePage = ({ data, regions, current, setCurrent, setQuizScore }) => {
    setQuizScore(0);
   return (
       
-  <div className="container" id="globe-page">
-      <h1>Welcome to the Globe 🌐</h1>
-      <h3>
-      There are {regions.length} regions to choose from. 🌍🌎🌏
+  <div>
+      <h1 className="m-5 text-2xl font-bold">Welcome to the Globe 🌐</h1>
+      <h3 className="m-5 text-xl font-bold">
+      There are 25 sub-regions to choose from. 🌍🌎🌏
       </h3>
-      <p>Click on a button below to head to a random country in the selected region.</p>
-      <p>You won't be able to choose which country you'll arrive in.. 🤭
+      <p className="text-sm">Click on a button below to head to a random country in the selected region.</p>
+      <p className="text-sm">You won't be able to choose which country you'll arrive in.. 🤭
       <br/>So buckle up, and just enjoy setting forth into the unknown. 😊 </p>
       {regionalCountriesContainers}
-      
   </div>);
 };
 

@@ -1,17 +1,9 @@
-.correct-ans {
-    color: green;
-    background-color: rgb(198, 231, 191);
-}
-
-.wrong-ans {
-    color: red;
-    background-color: rgb(231, 191, 198);
-}
-
 #correct-click {
-    border: 0.75vmin solid green;
+    border: 0.75vmin solid blue;
+    opacity: 1;
 }
 
 #wrong-click {
-    border: 0.75vmin solid red;
+    border: 0.75vmin solid orange;
+    opacity: 0.5;
 }
