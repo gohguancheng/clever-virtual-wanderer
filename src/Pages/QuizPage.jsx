@@ -11,7 +11,7 @@ const QuizPage = ({data, quizScore, setQuizScore}) => {
   const [questionsAnswered, setQuestionsAnswered] = useState(0);
   const navigate = useNavigate();
 
-  (questionsAnswered === 7) ? null : setTimeout(()=>navigate(`/${regionName}/${countryName}/results`), 10000);
+  (questionsAnswered === 7) ? setTimeout(()=>navigate(`/${regionName}/${countryName}/results`), 20000) : null;
 
   useEffect(() => {
     const selectedCountryFullData = data.filter((e) => e.name.common === countryName);
@@ -27,11 +27,11 @@ const QuizPage = ({data, quizScore, setQuizScore}) => {
       <h3 className="m-5 text-2xl font-bold">Answer all the Questions below about {countryName}.</h3>
       <h3 className="m-5 text-2xl font-bold">Your Score: {quizScore}</h3>
       {(questionsAnswered === 7) ? (<Link to={`/${regionName}/${countryName}/results`}>
-          <button className="m-4 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"> Click Me! </button>
+          <button className="m-4 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"> Let's check out {countryName}! </button>
         </Link>):null}
       {arrayOfQuestions}
       {(questionsAnswered === 7) ? (<Link to={`/${regionName}/${countryName}/results`}>
-          <button className="m-4 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"> Click Me! </button>
+          <button className="m-4 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"> Let's check out {countryName}! </button>
         </Link>):null}
        </div>;
 };
