@@ -1,5 +1,4 @@
 import React from 'react';
-import '../Styles/Flags.css'
 
 const Flags = ({ style, country, src , currentCountry }) => {
     if(country === currentCountry) {

@@ -10,7 +10,11 @@ const UsernameInput = ({ setUsername }) => {
   };
 
   useEffect(() => {
-    setUsername(user);
+    if (user !== "") {
+      setUsername(user);
+    } else {
+      setUsername("Mystery Traveller");
+    }
   }, [user]);
 
   return (

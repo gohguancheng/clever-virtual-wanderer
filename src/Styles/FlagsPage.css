@@ -3,3 +3,9 @@ body {
     width: 100vw;
 }
 
+.flags {
+
+    height: 9vh;
+    width: auto;
+    margin:1vmin;
+}

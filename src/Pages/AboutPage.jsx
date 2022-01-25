@@ -15,7 +15,7 @@ const AboutPage = ({ username }) => {
     <div className="container" id="about-page">
       <h1>About the App</h1>
       <h4 style={{color: "darkgreen"}}>Not all who (virtually) wander are lost.. 🚢✈️🧳</h4>
-      <h3> 💯🥸Being Clever </h3>
+      <h3> 💯🤓Being Clever </h3>
       <p>
         {" "}
         Contextual knowledge enhances our experiences of the place(s) we visit. 📖

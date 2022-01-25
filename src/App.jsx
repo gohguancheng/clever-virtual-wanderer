@@ -13,29 +13,35 @@ import { filterRegionsData } from "./Data_Logic/functions";
 const COUNTRY_API_URL =
   "https://restcountries.com/v3/all?fields=name,subregion,flags,capital,currencies,car,unMember,population,demonyms,continents,languages";
 
+const COUNTRY_API_STATUS = {
+  ini: "App initialised!",
+  pending: "Fetching Countries data..",
+  ok: "Countries data received",
+  none: "No Countries data received",
+};
+
 function App() {
-  const [status, setStatus] = useState("App initialised!");
+  const [status, setStatus] = useState(COUNTRY_API_STATUS.ini);
   const [fullData, setFullData] = useState([]);
   const [regions, setRegions] = useState([]);
-  const [current, setCurrent] = useState({
-  });
+  const [current, setCurrent] = useState({});
   const [quizScore, setQuizScore] = useState(0);
-  const [username, setUsername] = useState("")
+  const [username, setUsername] = useState("Mystery Traveller");
 
   useEffect(() => {
-    setStatus("Fetching countries data..");
+    setStatus(COUNTRY_API_STATUS.pending);
     fetch(COUNTRY_API_URL)
       .then((response) => response.json())
       .then((data) => {
         setFullData(data);
-        setStatus("Countries data received");
+        setStatus(COUNTRY_API_STATUS.ok);
       })
-      .catch(() => setStatus("No Countries data received"));
+      .catch(() => setStatus(COUNTRY_API_STATUS.none));
   }, []);
 
   useEffect(() => {
-    if (status !== "Fetching countries data..") {
-      const availableRegions = filterRegionsData(fullData).sort(); //! why can't i put this outside of useEffect?
+    if (status === COUNTRY_API_STATUS.ok) {
+      const availableRegions = filterRegionsData(fullData).sort();
       setRegions(availableRegions);
     }
   }, [status]);
@@ -44,7 +50,10 @@ function App() {
     <div className="App">
       <NavigationBar status={status} current={current} />
       <Routes>
-        <Route path="/" element={<HomePage username={username} setUsername={setUsername} />} />
+        <Route
+          path="/"
+          element={<HomePage username={username} setUsername={setUsername} />}
+        />
         <Route path="about" element={<AboutPage username={username} />} />
         <Route
           path="/regions"
@@ -53,6 +62,7 @@ function App() {
               data={fullData}
               regions={regions}
               current={current}
+              username={username}
               setCurrent={setCurrent}
               setQuizScore={setQuizScore}
             />
@@ -72,17 +82,17 @@ function App() {
             />
           }
         ></Route>
-                <Route
+        <Route
           path="/:regionName/:countryName/results"
           element={
             <ResultsPage
-              data={fullData} 
+              data={fullData}
               quizScore={quizScore}
               current={current}
+              username={username}
             />
           }
         ></Route>
-        {/* <Route path="" element={}></Route> */}
       </Routes>
     </div>
   );

@@ -24,7 +24,7 @@ const QuizPage = ({data, quizScore, setQuizScore}) => {
   }))
 
   return <div className="container" id="quiz-page">
-      <h3>Answer all the Below Questions about {countryName}.</h3>
+      <h3>Answer all the Questions below about {countryName}.</h3>
       <h3>Your Score: {quizScore}</h3>
       {arrayOfQuestions}
        </div>;

@@ -4,7 +4,13 @@ import { statsGenerator, imageLinksArray } from "../Data_Logic/functions";
 import { imageCall } from '../Data_Logic/credentials';
 import { useParams } from "react-router-dom";
 
-const ResultsPage = ({ data, quizScore, current }) => {
+const imageDataMessage = {
+  pending: "Fetching Images Data from Unsplash", 
+  done: "Images Data Received", 
+  noData: "Unable to receive Images Data from Unsplash"
+}
+
+const ResultsPage = ({ data, quizScore, current, username }) => {
   const [facts, setFacts] = useState();
   const [imageFullData, setImageFullData] = useState(); 
   const [IMGStatus, setIMGStatus] = useState();
@@ -14,18 +20,18 @@ const ResultsPage = ({ data, quizScore, current }) => {
   const imagesURL = imageCall(countryName);
 
   useEffect(() => {
-    setIMGStatus("Fetching image data..");
+    setIMGStatus(imageDataMessage.pending);
     fetch(imagesURL)
       .then((response) => response.json())
       .then((data) => {
         setImageFullData(data);
-        setIMGStatus("images data received");
+        setIMGStatus(imageDataMessage.done);
       })
-      .catch(() => setIMGStatus("No image data received"));
+      .catch(() => setIMGStatus(imageDataMessage.noData));
   }, [countryName]);
 
   useEffect(() => {
-    if (IMGStatus !== "Fetching image data..") {
+    if (IMGStatus !== imageDataMessage.pending) {
       const imageSourceArrays = imageLinksArray(imageFullData, quizScore);
       setImageLinks(imageSourceArrays);
     }
@@ -46,8 +52,7 @@ const ResultsPage = ({ data, quizScore, current }) => {
       : null;
   return (
     <div>
-      {(IMGStatus === "images data received") ? null : IMGStatus}
-      <h1>Welcome to {current.country}. 🥳</h1>
+      <h1>Welcome to {current.country}, {username}. 🥳</h1>
       <h4>
         You scored {quizScore} out of 7 in the earlier short pre-boarding quiz
         for {current.country}! 🎉
@@ -95,7 +100,7 @@ const ResultsPage = ({ data, quizScore, current }) => {
           Here are some images (courtesy of 'Unsplash') related to {current.country}!
           <br /> 2 images displayed for each point earned from the quiz. ({quizScore} X 2 = {quizScore*2} 📷)
         </h4>
-        <ImageDisplay country={current.country} score={quizScore} source={imageLinks} />
+        {(IMGStatus !== imageDataMessage.done ) ? IMGStatus : <ImageDisplay country={current.country} score={quizScore} source={imageLinks} />}
       </div>
     </div>
   );
