@@ -1,32 +1,45 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { randomArrayElementSelector } from '../Data_Logic/functions';
+import React from "react";
+import { Link } from "react-router-dom";
+import { randomArrayElementSelector } from "../Data_Logic/functions";
 
-
-
-const RegionButton = ({ data, index, region, current, setCurrent }) => {
-
-  const handleAssignCountry = (r) => {
-   // console.log("clicked region:", r)
-    const countriesByRegion = data.filter((element) => {
-      return element.subregion === r;
+const RegionButton = ({ data, subregion, setCurrent }) => {
+  const handleAssignCountry = (subregion) => {
+    let comparator = null;
+    if (subregion === "Antarctica & Southern Ocean") {
+      comparator = "";
+    } else {
+      comparator = subregion;
+    }
+    const countriesBySubregion = data.filter((element) => {
+      return element.subregion === comparator;
     });
-   // console.log(countriesByRegion);
-    const arrayOfCountries = countriesByRegion.map((element) => {
+
+    const arrayOfCountries = countriesBySubregion.map((element) => {
       return element.name.common;
     });
     const result = randomArrayElementSelector(arrayOfCountries);
 
-    setCurrent( (prevState) => ({...prevState, ...{region: r, countryList: arrayOfCountries, country : result}}) )
-  }
+    setCurrent((prevState) => ({
+      ...prevState,
+      ...{
+        subregion: comparator,
+        countryList: arrayOfCountries,
+        country: result,
+      },
+    }));
+  };
 
   return (
-    <Link to={`${region}/countries`}>
-    <button className="region-button" id={`${region}`} onClick={()=>handleAssignCountry(region)}>
-    {index}. {region}
-    </button>
-    </Link>  
-  )
+    <Link to={`${subregion}/countries`}>
+      <button
+        className="region-button"
+        id={`${subregion}`}
+        onClick={() => handleAssignCountry(subregion)}
+      >
+        {subregion}
+      </button>
+    </Link>
+  );
 };
 
 export default RegionButton;

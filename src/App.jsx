@@ -8,10 +8,10 @@ import GlobePage from "./Pages/GlobePage";
 import FlagsPages from "./Pages/FlagsPage";
 import QuizPage from "./Pages/QuizPage";
 import ResultsPage from "./Pages/ResultsPage";
-import { filterRegionsData } from "./Data_Logic/functions";
+import { filterSubregionsByRegions } from "./Data_Logic/functions";
 
 const COUNTRY_API_URL =
-  "https://restcountries.com/v3/all?fields=name,subregion,flags,capital,currencies,car,unMember,population,demonyms,continents,languages";
+  "https://restcountries.com/v3/all?fields=name,region,subregion,flags,capital,currencies,car,unMember,population,demonyms,continents,languages";
 
 const COUNTRY_API_STATUS = {
   ini: "App initialised!",
@@ -33,6 +33,7 @@ function App() {
     fetch(COUNTRY_API_URL)
       .then((response) => response.json())
       .then((data) => {
+        // console.log(data);
         setFullData(data);
         setStatus(COUNTRY_API_STATUS.ok);
       })
@@ -41,8 +42,9 @@ function App() {
 
   useEffect(() => {
     if (status === COUNTRY_API_STATUS.ok) {
-      const availableRegions = filterRegionsData(fullData).sort();
-      setRegions(availableRegions);
+      const arrayOfRegionsWithSubregions = filterSubregionsByRegions(fullData);
+      //console.log(continentsWithRegions)
+      setRegions(arrayOfRegionsWithSubregions);
     }
   }, [status]);
 

@@ -1,13 +1,31 @@
-export const filterRegionsData = (data) => {
-  let output = null;
+const onlyUniqueInArray = (element, index, self) => {
+  return self.indexOf(element) === index;
+};
+
+export const filterSubregionsByRegions = (data) => {
+  let outputArray = [];
   if (data !== null) {
-    const regionObjects = data.map((element) => element.subregion);
-    const regions = regionObjects.filter((element, index, self) => {
-      return self.indexOf(element.trim()) === index && element !== "";
-    });
-    output = regions;
+    const regionArray = data.map((element) => element.region);
+    const uniqueRegionsArr = regionArray.filter(onlyUniqueInArray);
+    for (const region of uniqueRegionsArr) {
+      const objOfRegionsAndSubregions = data.filter((e, i) => {
+        return e.region === region;
+      });
+      const subregions = objOfRegionsAndSubregions.map((e) => e.subregion);
+
+      const uniqueSubregions = subregions.filter((element, index, self) => {
+        return self.indexOf(element.trim()) === index && element !== "";
+      });
+      let regionObj = {};
+      if (uniqueSubregions.length !== 0) {
+        regionObj[region] = uniqueSubregions;
+      } else {
+        regionObj[region] = ["Antarctica & Southern Ocean"];
+      }
+      outputArray.push(regionObj);
+    }
   }
-  return output;
+  return outputArray; // outputs -> [regionValue1: [subregionValue1, ... ], ... ]
 };
 
 export const randomArrayElementSelector = (array) => {
@@ -107,13 +125,11 @@ export const answerGenerator = (topic, countryData, originalData) => {
       answer: countryData[topic],
       isTrue: true,
     };
-
   } else {
     info = {
       answer: randomCountryStats[topic],
       isTrue: false,
     };
-
   }
   result = { ...newObj, ...info };
   return result;
@@ -126,7 +142,7 @@ export const imageLinksArray = (data, qty) => {
     object.link = e?.links?.download;
     return object;
   });
-  const arrayOfImagesLinks = arrayOfObjects?.slice(0, 2*qty);
+  const arrayOfImagesLinks = arrayOfObjects?.slice(0, 2 * qty);
 
   return arrayOfImagesLinks;
 };

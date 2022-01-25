@@ -24,7 +24,7 @@ const UsernameInput = ({ setUsername }) => {
           <p className="m-5 text-xl font-semibold">What's your name, traveller? 👋</p>
         </label>
         <input 
-          class="shadow appearance-none border rounded w-100 py-1 px-8 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          className="shadow appearance-none border rounded w-100 py-1 px-8 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           onChange={updateName}
           ref={input}
           type="text"
