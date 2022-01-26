@@ -11,7 +11,7 @@ const SpaceOddityPage = () => {
     if (statement === ["Space", "Oddity", "by", "David", "Bowie", "is", "a", "pretty","cool", "song"]) return setIsUnlocked(true);
 
     const statementDisplay = statement.map((e, i) => { 
-        return <span key={i} className="grid-inline m-1 bg-white border-2 text-3xl border-slate-500 font-semibold">{e}</span>    
+        return <span key={i} className="grid-inline mx-1 my-4 bg-white border-2 text-2xl border-slate-500 font-semibold">{e}</span>    
     } )
   return <div>
             <h4 className="m-5 text-2xl font-bold">A Quick Game Before Your <span className='underline'>Out Of This World</span>  Experience. 🚀</h4>

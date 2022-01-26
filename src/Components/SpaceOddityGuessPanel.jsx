@@ -47,6 +47,7 @@ const SpaceOddityGuessPanel = ({ statement, setStatement, setIsUnlocked }) => {
       />
     );
   });
+  
   return <div className="m-8">{buttons}</div>;
 };
 
