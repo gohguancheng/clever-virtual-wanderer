@@ -10,6 +10,7 @@ import QuizPage from "./Pages/QuizPage";
 import ResultsPage from "./Pages/ResultsPage";
 import SpacePage from "./Pages/SpacePage";
 import { filterSubregionsByRegions } from "./Data_Logic/functions";
+import SpaceOddityPage from "./Pages/SpaceOddityPage";
 
 const COUNTRY_API_URL =
   "https://restcountries.com/v3/all?fields=name,region,subregion,flags,capital,currencies,car,unMember,population,demonyms,continents,languages";
@@ -92,6 +93,14 @@ function App() {
               data={fullData}
               quizScore={quizScore}
               current={current}
+              username={username}
+            />
+          }
+        ></Route>
+                        <Route
+          path="/:regionName/GroundControl"
+          element={
+            <SpaceOddityPage
               username={username}
             />
           }
