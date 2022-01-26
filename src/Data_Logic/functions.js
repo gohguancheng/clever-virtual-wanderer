@@ -24,6 +24,7 @@ export const filterSubregionsByRegions = (data) => {
       }
       outputArray.push(regionObj);
     }
+    outputArray.push({Others: ["Out Of This World"]});
   }
   return outputArray; // outputs -> [regionValue1: [subregionValue1, ... ], ... ]
 };
@@ -121,10 +122,17 @@ export const answerGenerator = (topic, countryData, originalData) => {
   let info;
 
   if (coinFlip === 1) {
-    info = {
-      answer: countryData[topic],
-      isTrue: true,
-    };
+    if (countryData[topic] === "" || countryData[topic] === undefined) {
+      info = {
+        answer: "*Unknown / No Official Data*",
+        isTrue: true,
+      };
+    } else {
+      info = {
+        answer: countryData[topic],
+        isTrue: true,
+      };
+    }
   } else {
     info = {
       answer: randomCountryStats[topic],

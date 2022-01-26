@@ -11,8 +11,6 @@ const QuizPage = ({data, quizScore, setQuizScore}) => {
   const [questionsAnswered, setQuestionsAnswered] = useState(0);
   const navigate = useNavigate();
 
-  // (questionsAnswered === 7) ? setTimeout(()=>navigate(`/${regionName}/${countryName}/results`), 20000) : null;
-
   useEffect(() => {
     const selectedCountryFullData = data.filter((e) => e.name.common === countryName);
     const localData = statsGenerator(selectedCountryFullData[0]);

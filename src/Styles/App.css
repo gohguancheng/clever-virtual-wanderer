@@ -8,22 +8,7 @@
   padding: 0;
   background-color: #def3f6;
   height: 100vh;
-  font-family: 'Garamond';
-  font-size: 2.4vmin;
-  
+  font-family: "Garamond", "Baskerville", "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+  font-size: 2vmin;
 }
 
-
-
-button {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}

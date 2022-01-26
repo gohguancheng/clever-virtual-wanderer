@@ -8,6 +8,7 @@ import GlobePage from "./Pages/GlobePage";
 import FlagsPages from "./Pages/FlagsPage";
 import QuizPage from "./Pages/QuizPage";
 import ResultsPage from "./Pages/ResultsPage";
+import SpacePage from "./Pages/SpacePage";
 import { filterSubregionsByRegions } from "./Data_Logic/functions";
 
 const COUNTRY_API_URL =
@@ -92,6 +93,15 @@ function App() {
               quizScore={quizScore}
               current={current}
               username={username}
+            />
+          }
+        ></Route>
+                <Route
+          path="/:regionName/space"
+          element={
+            <SpacePage
+              username={username}
+              current={current}
             />
           }
         ></Route>

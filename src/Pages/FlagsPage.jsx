@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import Flags from "../Components/Flags";
-import '../Styles/FlagsPage.css'
+
 
 const highlightStyle = {
   height: "30vmin",
