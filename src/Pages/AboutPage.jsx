@@ -12,7 +12,7 @@ const AboutPage = ({ username }) => {
     (passphraseInput === PASSPHRASE ? setIsLocked(false) : setIsLocked(true))
   },[passphraseInput]);
 
-  isLocked ? null : setTimeout(()=>navigate(`/regions`), 1000);
+  isLocked ? null : setTimeout(()=>navigate(`/regions`), 500);
   
   return (
     <div className="flex-col justify-center items-center">
