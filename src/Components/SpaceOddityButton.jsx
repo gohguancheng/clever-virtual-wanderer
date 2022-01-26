@@ -16,7 +16,6 @@ const SpaceOddityButton = ({
     if (index !== -1) {
       let newArr = [...statement];
       newArr[index] = text;
-      console.log(newArr);
       setStatement(newArr);
       setCorrectCount((count) => count + 1);
     }
