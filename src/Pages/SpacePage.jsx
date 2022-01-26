@@ -38,7 +38,8 @@ const SpacePage = ({username, current}) => {
           Welcome to Outer Space, {username}. 🥳
         </h1>
         <h4 className="m-2 text-xl font-bold">
-          Ground Control to Major Tom..<br/> It seems you've decided to leave Earth altogether. 🎉
+          Ground Control to Major Tom.. <br/> It seems you've decided to leave Earth altogether. 
+          <br/> No questions to answer here. 🎉
         </h4>
       </div>
       <div className="m-4">
