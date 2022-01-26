@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ImageDisplay from "../Components/ImageDisplay";
-import { statsGenerator, imageLinksArray } from "../Data_Logic/functions";
+import { randomArrayElementSelector, imageLinksArray } from "../Data_Logic/functions";
 import { imageCall } from "../Data_Logic/credentials";
 import { Link } from "react-router-dom";
 
@@ -9,11 +9,13 @@ const imageDataMessage = {
   done: "Images Data Received",
   noData: "Unable to receive Images Data from Unsplash",
 };
+
+const spaceQueryTerms = ["nasa", "milkyway", "galaxy", "universe"]
 const SpacePage = ({username, current}) => {
   const [imageFullData, setImageFullData] = useState();
   const [IMGStatus, setIMGStatus] = useState();
   const [imageLinks, setImageLinks] = useState();
-  const imagesURL = imageCall("nasa");
+  const imagesURL = imageCall(randomArrayElementSelector(spaceQueryTerms));
   useEffect(() => {
     setIMGStatus(imageDataMessage.pending);
     fetch(imagesURL)
