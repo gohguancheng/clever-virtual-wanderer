@@ -93,12 +93,12 @@ const ResultsPage = ({ data, quizScore, current, username }) => {
           <span className="underline">{facts?.capital}</span>.
         </li>
         <li>
-          As of 2021, about{" "}
+          As at 2021, about{" "}
           <span className="underline"> {(populationInMil > 0) ? `${populationInMil} million` : facts?.population }</span> people live
-          in: {current.country}.
+          in {current.country}.
         </li>
         <li>
-          As of 2021, {current.country}{" "}
+          As at 2021, {current.country}{" "}
           <span className="underline">
             {" "}
             is {facts?.isUNMember ? null : "not"} a member</span>{" "}

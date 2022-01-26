@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom';
 
 
 const SpaceOddityPage = () => {
-    const [statement, setStatement] = useState(["?", "?", "?", "?", "?", "?", "?","?", "?", "?",])
+    const [statement, setStatement] = useState(["-", "-", "-", "-", "-", "-", "-","-", "-", "-",])
     const [isUnlocked, setIsUnlocked] = useState(false)
 
     if (statement === ["Space", "Oddity", "by", "David", "Bowie", "is", "a", "pretty","cool", "song"]) return setIsUnlocked(true);
 
     const statementDisplay = statement.map((e, i) => { 
-        return <span key={i} className="w-28 inline flex-wrap m-1 bg-white border-1 text-2xl border-slate-500 font-bold">{e}</span>    
+        return <span key={i} className="w-28 inline flex-wrap m-1 bg-black border-1 text-white text-2xl border-slate-500 font-bold">{e}</span>    
     } )
 
   return <div className='flex-inline flex-col flex-nowrap'>
