@@ -11,12 +11,11 @@ const SpaceOddityPage = () => {
     if (statement === ["Space", "Oddity", "by", "David", "Bowie", "is", "a", "pretty","cool", "song"]) return setIsUnlocked(true);
 
     const statementDisplay = statement.map((e, i) => { 
-        return <span key={i} className="w-28 inline flex-wrap m-1 bg-white border-1 text-3xl border-slate-500 font-bold">{e}</span>    
+        return <span key={i} className="w-28 inline flex-wrap m-1 bg-white border-1 text-2xl border-slate-500 font-bold">{e}</span>    
     } )
 
   return <div className='flex-inline flex-col flex-nowrap'>
-      <h4 className="m-5 text-2xl font-bold">A Quick Game Before Your <span className='underline'>Out Of This World</span>  Experience. 🚀</h4>
-      <h1 className="m-5 text-4xl font-bold">  </h1>      
+      <h4 className="m-5 text-2xl font-bold">A Quick Game Before Your <span className='underline'>Out Of This World</span>  Experience. 🚀</h4>  
       <p className="text-lg">
         No quizzes on this launchpad, but rather a simple game to get you in the groove. 
         <br/>Click the below buttons to guess the statement.
