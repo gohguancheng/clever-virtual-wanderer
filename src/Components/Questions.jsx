@@ -74,7 +74,7 @@ const Questions = ({
         <div className="m-2">
           <h4 className="m-2 text-lg" style={QStyle}>
             {" "}
-            The official name of {country} is: "{answerBank.answer}".{" "}
+            The official name of {country} is: <span className="font-semibold">{answerBank.answer}</span>.{" "}
           </h4>
           <p className={`m-2 text-base ${correctClick ? "text-green-600 bg-lime-200" : "text-red-800 bg-rose-200"}`}>{message}</p>
           <button className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-b-4 border-green-700 hover:border-green-500 rounded mx-4" disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>
@@ -86,7 +86,7 @@ const Questions = ({
       return (
         <div>
           <h4 className="m-2 text-lg" style={QStyle}>
-            The capital city of {country} is: {answerBank.answer}.{" "}
+            The capital city of {country} is: <span className="font-semibold">{answerBank.answer}</span>.{" "}
           </h4>
           <p className={`m-2 text-base ${correctClick ? "text-green-600 bg-lime-200" : "text-red-800 bg-rose-200"}`}>{message}</p>
           <button className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-b-4 border-green-700 hover:border-green-500 rounded mx-4" disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>
@@ -98,7 +98,7 @@ const Questions = ({
       return (
         <div>
           <h4 className="m-2 text-lg" style={QStyle}>
-            The currency(/ies) used in {country} is/are: {answerBank.answer}.{" "}
+            The currency(/ies) used in {country} is/are: <span className="font-semibold">{answerBank.answer}</span>.{" "}
           </h4>
           <p className={`m-2 text-base ${correctClick ? "text-green-600 bg-lime-200" : "text-red-800 bg-rose-200"}`}>{message}</p>
           <button className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-b-4 border-green-700 hover:border-green-500 rounded mx-4" disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>
@@ -110,7 +110,7 @@ const Questions = ({
       return (
         <div>
           <h4 className="m-2 text-lg" style={QStyle}>
-            A male citizen of {country} known as a(n): {answerBank.answer}.{" "}
+            A male citizen of {country} known as a(n): <span className="font-semibold">{answerBank.answer}</span>.{" "}
           </h4>
           <p className={`m-2 text-base ${correctClick ? "text-green-800 bg-lime-200" : "text-red-800 bg-rose-200"}`}>{message}</p>
           <button className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-b-4 border-green-700 hover:border-green-500 rounded mx-4" disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>
@@ -122,7 +122,7 @@ const Questions = ({
       return (
         <div>
           <h4 className="m-2 text-lg" style={QStyle}>
-            A female citizen of {country} known as a(n): {answerBank.answer}.{" "}
+            A female citizen of {country} known as a(n): <span className="font-semibold">{answerBank.answer}</span>.{" "}
           </h4>
           <p className={`m-2 text-base ${correctClick ? "text-green-600 bg-lime-200" : "text-red-800 bg-rose-200"}`}>{message}</p>
           <button className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-b-4 border-green-700 hover:border-green-500 rounded mx-4" disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>
@@ -134,7 +134,7 @@ const Questions = ({
       return (
         <div>
           <h4 className="m-2 text-lg" style={QStyle}>
-            The approx. population of {country} is {answerBank.answer} people.{" "}
+            The approx. population of {country} is <span className="font-semibold">{answerBank.answer}</span> people.{" "}
           </h4>
           <p className={`m-2 text-base ${correctClick ? "text-green-600 bg-lime-200" : "text-red-800 bg-rose-200"}`}>{message}</p>
           <button className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-b-4 border-green-700 hover:border-green-500 rounded mx-4" disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>
@@ -147,7 +147,7 @@ const Questions = ({
         <div>
           <h4 className="m-2 text-lg" style={QStyle}>
             The common language(s) spoken in {country} is/are:{" "}
-            {answerBank.answer}.{" "}
+            <span className="font-semibold">{answerBank.answer}</span>.{" "}
           </h4>
           <p className={`m-2 text-base ${correctClick ? "text-green-600 bg-lime-200" : "text-red-800 bg-rose-200"}`}>{message}</p>
           <button className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-b-4 border-green-700 hover:border-green-500 rounded mx-4" disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>
@@ -159,7 +159,7 @@ const Questions = ({
       return (
         <div>
           <h4 className="m-2 text-lg" style={QStyle}>
-            {country} is situated on the continent of: {answerBank.answer}.{" "}
+            {country} is situated on the continent of: <span className="font-semibold">{answerBank.answer}</span>.{" "}
           </h4>
           <p className={`m-2 text-base ${correctClick ? "text-green-600 bg-lime-200" : "text-red-800 bg-rose-200"}`}>{message}</p>
           <button className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-b-4 border-green-700 hover:border-green-500 rounded mx-4" disabled={buttonDisabled} onClick={questionTrueClickHandler}>True</button>

@@ -115,7 +115,7 @@ export const answerGenerator = (topic, countryData, originalData) => {
   const coinFlip = doCoinFlip();
   let randomIndex = randomIndexGenerator(originalData, countryData);
   let randomCountryStats = statsGenerator(originalData[randomIndex]);
-  while (randomCountryStats === undefined || randomCountryStats === "") {
+  while (randomCountryStats[topic] === undefined || randomCountryStats[topic] === "") {
     randomIndex = randomIndexGenerator(originalData, countryData);
     randomCountryStats = statsGenerator(originalData[randomIndex]);
   }
