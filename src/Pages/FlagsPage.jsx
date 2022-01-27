@@ -35,7 +35,7 @@ const FlagsPage = ({ data, current }) => {
     <div className="container" id="flags-page">
       <h4 className="m-5 text-2xl font-bold">Your Destination shall be: </h4>
       <h1 className="m-5 text-4xl font-bold"> {current.country} </h1>      
-      <p className="text-sm">
+      <p className="text-xl">
         Let's learn more about {current.country} through a quiz.
         <br />❗Answer carefully, as your quiz score will affect what you see
         later.

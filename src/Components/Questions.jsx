@@ -105,7 +105,7 @@ const Questions = ({
           >
             {correction}
           </p>
-          <span className="m-1  justify-self-center">
+          <span className="m-1 justify-self-center">
             <button
               className="bg-green-500 hover:bg-green-400 text-white font-bold py-1 px-4 border-b-4 border-green-700 hover:border-green-500 rounded mx-4"
               disabled={buttonDisabled}
