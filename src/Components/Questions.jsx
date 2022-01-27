@@ -178,7 +178,7 @@ const Questions = ({
             className="m-1 text-lg break-normal justify-self-center"
             style={QStyle}
           >
-            The currency(/ies) used in {country} is/are:{" "}
+            The common currency(/ies) used in {country} is/are:{" "}
             <span className="font-semibold">{answerBank.answer}</span>.{" "}
           </h4>
           <p
@@ -366,7 +366,7 @@ const Questions = ({
             className="m-1 text-lg break-normal justify-self-center"
             style={QStyle}
           >
-            The common language(s) spoken in {country} is/are:{" "}
+            The official language(s) of {country} is/are:{" "}
             <span className="font-semibold">{answerBank.answer}</span>.{" "}
           </h4>
           <p
