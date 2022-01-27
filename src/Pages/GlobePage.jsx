@@ -9,9 +9,9 @@ const GlobePage = ({ data, regions, current, setCurrent, setQuizScore }) => {
   return (
       
   <div>
-      <h1 className="m-5 text-2xl font-bold">Welcome to the Globe 🌐</h1>
+      <h1 className="m-5 text-2xl font-bold">Welcome to the Globe🌎</h1>
       <h3 className="m-5 text-xl font-bold">
-      There are 25 (+1) sub-regions to choose from. 🌍🌎🌏
+      There are 25 (+1) sub-regions to choose from. 🛫
       </h3>
       <p className="text-base">Click on a button below to head to a random country in the selected region.</p>
       <p className="text-base">You won't be able to choose which country you'll arrive in.. 🤭

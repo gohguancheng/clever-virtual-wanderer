@@ -75,6 +75,7 @@ export const statsGenerator = (data) => {
   const population = data?.population;
   const isUNMember = data?.unMember;
   const continents = data?.continents.join(" & ");
+  const region = data?.region;
 
   const result = {
     name: name,
@@ -87,6 +88,7 @@ export const statsGenerator = (data) => {
     population: population,
     isUNMember: isUNMember,
     continents: continents,
+    region: region,
   };
 
   return result;
@@ -140,7 +142,8 @@ export const answerGenerator = (topic, countryData, originalData) => {
     info = {
       answer: randomCountryStats[topic],
       isTrue: false,
-      correctCountry: randomCountryStats["name"],
+      matchCountry: randomCountryStats["name"],
+      matchRegion: randomCountryStats["region"],
 
     };
   }
