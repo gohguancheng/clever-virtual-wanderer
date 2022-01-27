@@ -41,8 +41,8 @@ export const TOPICS = [
   "capital",
   "languages",
   "currencies",
-  "maleCitizen",
   "femaleCitizen",
+  "maleCitizen",
   // "population",
   // "isUNMember",
 ];
