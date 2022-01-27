@@ -12,11 +12,11 @@ const Questions = ({
 }) => {
   const [QStyle, setQStyle] = useState({ color: "navy" });
   const [correctClick, setCorrectClick] = useState();
-  const [message, setMessage] = useState(null);
+  const [message, setMessage] = useState({line1:null,line2:null,});
   const [correction, setCorrection] = useState(null);
   const [answerBank, setAnswerBank] = useState({});
   const [buttonDisabled, setButtonDisabled] = useState(false);
-
+  console.log("message: ", message);
   //* make sure generated bank is not changed during renders
   useEffect(() => {
     if (countryData !== null) {
@@ -29,8 +29,8 @@ const Questions = ({
     setQuestionsAnswered((prev) => prev + 1);
     setButtonDisabled(true);
     if (answerBank.isTrue || answerBank.answer === countryData[topic]) {
-      setMessage(
-        `You got it, the above is true! "${answerBank.answer}" is indeed the correct answer.`
+      setMessage( 
+        {...message, ...{line1: `You got it, the above is true!`, line2:`"${answerBank.answer}" is indeed the correct answer.`}}
       );
       setQStyle({ color: "green" });
       setQuizScore((prev) => prev + 1);
@@ -38,7 +38,7 @@ const Questions = ({
       event.target.id = "correct-click";
     } else {
       setMessage(
-        `Sorry, the above is false! "${countryData[topic]}" is in fact the correct answer.`
+        {...message, ...{line1: `Sorry, the above is false!`, line2:`"${countryData[topic]}" is in fact the correct answer.` ,}}
       );
       setCorrection(
         `Trivia: '${answerBank.answer}' would be a valid answer for the country of ${answerBank.matchCountry} from the '${answerBank.matchRegion}' continent.`
@@ -53,7 +53,7 @@ const Questions = ({
     setButtonDisabled(true);
     if (!answerBank.isTrue) {
       setMessage(
-        `Yes, the above is false! "${countryData[topic]}" would be the correct answer.`
+        {...message, ...{line1: `Yes, the above is false!`, line2:`"${countryData[topic]}" would be the correct answer.` ,}}
       );
       setCorrection(
         `Trivia: '${answerBank.answer}' would be a valid answer for the country of ${answerBank.matchCountry} from the '${answerBank.matchRegion}' continent.`
@@ -64,7 +64,7 @@ const Questions = ({
       event.target.id = "correct-click";
     } else {
       setMessage(
-        `Sorry, the above is true! "${answerBank.answer}" is actually the correct answer.`
+        {...message, ...{line1: `Sorry, the above is true!`, line2:`"${answerBank.answer}" is actually the correct answer.` ,}}
       );
       setQStyle({ color: "green" });
       setCorrectClick(false);
@@ -94,10 +94,19 @@ const Questions = ({
                 : "text-red-800 bg-rose-200"
             }`}
           >
-            {message}
+            {message.line1}
           </p>
           <p
-            className={`pt-1 w-max justify-self-center text-xs font-light break-all ${
+            className={`w-max justify-self-center text-base break-all ${
+              correctClick
+                ? "text-green-600 bg-lime-200"
+                : "text-red-800 bg-rose-200"
+            }`}
+          >
+            {message.line2}
+          </p>
+          <p
+            className={`pt-2 w-max justify-self-center text-xs font-light break-all ${
               correctClick
                 ? "text-green-600 bg-lime-200"
                 : "text-red-800 bg-rose-200"
@@ -141,10 +150,19 @@ const Questions = ({
                 : "text-red-800 bg-rose-200"
             }`}
           >
-            {message}
+            {message.line1}
           </p>
           <p
-            className={`pt-1 w-max justify-self-center text-xs font-light break-all ${
+            className={`w-max justify-self-center text-base break-all ${
+              correctClick
+                ? "text-green-600 bg-lime-200"
+                : "text-red-800 bg-rose-200"
+            }`}
+          >
+            {message.line2}
+          </p>
+          <p
+            className={`pt-2 w-max justify-self-center text-xs font-light break-all ${
               correctClick
                 ? "text-green-600 bg-lime-200"
                 : "text-red-800 bg-rose-200"
@@ -188,10 +206,19 @@ const Questions = ({
                 : "text-red-800 bg-rose-200"
             }`}
           >
-            {message}
+            {message.line1}
           </p>
           <p
-            className={`pt-1 w-max justify-self-center text-xs font-light break-all ${
+            className={`w-max justify-self-center text-base break-all ${
+              correctClick
+                ? "text-green-600 bg-lime-200"
+                : "text-red-800 bg-rose-200"
+            }`}
+          >
+            {message.line2}
+          </p>
+          <p
+            className={`pt-2 w-max justify-self-center text-xs font-light break-all ${
               correctClick
                 ? "text-green-600 bg-lime-200"
                 : "text-red-800 bg-rose-200"
@@ -235,10 +262,19 @@ const Questions = ({
                 : "text-red-800 bg-rose-200"
             }`}
           >
-            {message}
+            {message.line1}
           </p>
           <p
-            className={`pt-1 w-max justify-self-center text-xs font-light break-all ${
+            className={`w-max justify-self-center text-base break-all ${
+              correctClick
+                ? "text-green-600 bg-lime-200"
+                : "text-red-800 bg-rose-200"
+            }`}
+          >
+            {message.line2}
+          </p>
+          <p
+            className={`pt-2 w-max justify-self-center text-xs font-light break-all ${
               correctClick
                 ? "text-green-600 bg-lime-200"
                 : "text-red-800 bg-rose-200"
@@ -282,10 +318,19 @@ const Questions = ({
                 : "text-red-800 bg-rose-200"
             }`}
           >
-            {message}
+            {message.line1}
           </p>
           <p
-            className={`pt-1 w-max justify-self-center text-xs font-light break-all ${
+            className={`w-max justify-self-center text-base break-all ${
+              correctClick
+                ? "text-green-600 bg-lime-200"
+                : "text-red-800 bg-rose-200"
+            }`}
+          >
+            {message.line2}
+          </p>
+          <p
+            className={`pt-2 w-max justify-self-center text-xs font-light break-all ${
               correctClick
                 ? "text-green-600 bg-lime-200"
                 : "text-red-800 bg-rose-200"
@@ -329,10 +374,19 @@ const Questions = ({
                 : "text-red-800 bg-rose-200"
             }`}
           >
-            {message}
+            {message.line1}
           </p>
           <p
-            className={`pt-1 w-max justify-self-center text-xs font-light break-all ${
+            className={`w-max justify-self-center text-base break-all ${
+              correctClick
+                ? "text-green-600 bg-lime-200"
+                : "text-red-800 bg-rose-200"
+            }`}
+          >
+            {message.line2}
+          </p>
+          <p
+            className={`pt-2 w-max justify-self-center text-xs font-light break-all ${
               correctClick
                 ? "text-green-600 bg-lime-200"
                 : "text-red-800 bg-rose-200"
@@ -376,10 +430,19 @@ const Questions = ({
                 : "text-red-800 bg-rose-200"
             }`}
           >
-            {message}
+            {message.line1}
           </p>
           <p
-            className={`pt-1 w-max justify-self-center text-xs font-light break-all ${
+            className={`w-max justify-self-center text-base break-all ${
+              correctClick
+                ? "text-green-600 bg-lime-200"
+                : "text-red-800 bg-rose-200"
+            }`}
+          >
+            {message.line2}
+          </p>
+          <p
+            className={`pt-2 w-max justify-self-center text-xs font-light break-all ${
               correctClick
                 ? "text-green-600 bg-lime-200"
                 : "text-red-800 bg-rose-200"
@@ -423,10 +486,19 @@ const Questions = ({
                 : "text-red-800 bg-rose-200"
             }`}
           >
-            {message}
+            {message.line1}
           </p>
           <p
-            className={`pt-1 w-max justify-self-center text-xs font-light break-all ${
+            className={`w-max justify-self-center text-base break-all ${
+              correctClick
+                ? "text-green-600 bg-lime-200"
+                : "text-red-800 bg-rose-200"
+            }`}
+          >
+            {message.line2}
+          </p>
+          <p
+            className={`pt-2 w-max justify-self-center text-xs font-light break-all ${
               correctClick
                 ? "text-green-600 bg-lime-200"
                 : "text-red-800 bg-rose-200"
