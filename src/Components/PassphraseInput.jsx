@@ -13,7 +13,7 @@ const PassphraseInput = ({ username, setPassphraseInput, PASSPHRASE }) => {
 
   useEffect(() => {
     if (showHint) {
-      setHintText(`Passphrase = ${PASSPHRASE}`);
+      setHintText(`Passphrase: ${PASSPHRASE}`);
     } else {
       setHintText(null);
     }
@@ -27,14 +27,6 @@ const PassphraseInput = ({ username, setPassphraseInput, PASSPHRASE }) => {
           enter the <span className="font-black underline">case-sensitive</span> secret passphrase. 🔏
         </p>
       </label>
-      <input
-        ref={input}
-        onChange={passphraseChecker}
-        className="m-1 shadow appearance-none border rounded w-fit py-1 px-8 text-gray-700 leading-tight text-center focus:outline-none focus:shadow-outline"
-        type="text"
-        placeholder="Enter secret passphrase"
-      ></input>
-      <div className="m-2 text-lg">{hintText}</div>
       <div>
         <button
         className="m-1 bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-b-4 border-green-700 hover:border-green-500 rounded"
@@ -44,6 +36,15 @@ const PassphraseInput = ({ username, setPassphraseInput, PASSPHRASE }) => {
           Click for Hint
         </button>
       </div>
+      <div className="m-2 text-lg">{hintText}</div>
+      <input
+        ref={input}
+        onChange={passphraseChecker}
+        className="m-1 shadow appearance-none border rounded w-fit py-1 px-8 text-gray-700 leading-tight text-center focus:outline-none focus:shadow-outline"
+        type="text"
+        placeholder="Enter secret passphrase"
+      ></input>
+
     </div>
   );
 };

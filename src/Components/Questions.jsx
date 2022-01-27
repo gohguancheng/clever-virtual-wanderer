@@ -41,7 +41,7 @@ const Questions = ({
         `Sorry, the above is false! "${countryData[topic]}" is in fact the correct answer.`
       );
       setCorrection(
-        `Bonus Trivia: "${answerBank.answer}" would be a valid answer for the country of ${answerBank.matchCountry} from the "${answerBank.matchRegion}" continent.`
+        `Trivia: '${answerBank.answer}' would be a valid answer for the country of ${answerBank.matchCountry} from the '${answerBank.matchRegion}' continent.`
       );
       setQStyle({ color: "red" });
       setCorrectClick(false);
@@ -56,7 +56,7 @@ const Questions = ({
         `Yes, the above is false! "${countryData[topic]}" would be the correct answer.`
       );
       setCorrection(
-        `Bonus Trivia: "${answerBank.answer}" would be a valid answer for the country of ${answerBank.matchCountry} from the "${answerBank.matchRegion}" continent.`
+        `Trivia: '${answerBank.answer}' would be a valid answer for the country of ${answerBank.matchCountry} from the '${answerBank.matchRegion}' continent.`
       );
       setQStyle({ color: "red" });
       setQuizScore((prev) => prev + 1);
