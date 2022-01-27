@@ -57,7 +57,7 @@ const RegionButton = ({ data, subregion, setCurrent }) => {
       <div className="w-fit inline flex-wrap">
       <Link to={`${subregion}/countries`}>
         <button
-          className="m-1 w-36 h-16 no-underline box-border inline cursor-pointer outline-0 border-0 bg-lime-400 rounded-3xl text-base font-semibold text-green-900 bg-auto shadow-xl"
+          className="text-xl m-1 w-40 px-2 h-20 no-underline box-border inline cursor-pointer outline-0 border-0 bg-lime-400 rounded-3xl text-base font-semibold text-green-900 bg-auto shadow-xl"
           id={`${subregion}`}
           onClick={() => handleAssignCountry(subregion)}
         >

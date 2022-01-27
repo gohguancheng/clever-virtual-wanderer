@@ -77,7 +77,7 @@ const Questions = ({
       return (
         <div className="grid m-2 justify-center">
           <h4
-            className="m-1 text-lg break-normal justify-self-center"
+            className="m-1 text-2xl break-normal justify-self-center"
             style={QStyle}
           >
             {" "}
@@ -88,7 +88,7 @@ const Questions = ({
             .{" "}
           </h4>
           <p
-            className={`w-max justify-self-center text-base break-all ${
+            className={`w-max justify-self-center text-lg break-all ${
               correctClick
                 ? "text-green-600 bg-lime-200"
                 : "text-red-800 bg-rose-200"
@@ -97,7 +97,7 @@ const Questions = ({
             {message.line1}
           </p>
           <p
-            className={`w-max justify-self-center text-base break-all ${
+            className={`w-max justify-self-center text-lg break-all ${
               correctClick
                 ? "text-green-600 bg-lime-200"
                 : "text-red-800 bg-rose-200"
@@ -116,14 +116,14 @@ const Questions = ({
           </p>
           <span className="m-1 justify-self-center">
             <button
-              className="bg-green-500 hover:bg-green-400 text-white font-bold py-1 px-4 border-b-4 border-green-700 hover:border-green-500 rounded mx-4"
+              className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-6 border-b-4 border-green-700 hover:border-green-500 rounded mx-4"
               disabled={buttonDisabled}
               onClick={questionTrueClickHandler}
             >
               True
             </button>
             <button
-              className="bg-red-500 hover:bg-red-400 text-white font-bold py-1 px-4 border-b-4 border-red-700 hover:border-red-500 rounded mx-4"
+              className="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-6 border-b-4 border-red-700 hover:border-red-500 rounded mx-4"
               disabled={buttonDisabled}
               onClick={questionFalseClickHandler}
             >
@@ -137,14 +137,14 @@ const Questions = ({
       return (
         <div className="grid m-2 justify-center">
           <h4
-            className="m-1 text-lg break-normal justify-self-center"
+            className="m-1 text-2xl break-normal justify-self-center"
             style={QStyle}
           >
             The capital city of {country} is:{" "}
             <span className="font-semibold">{answerBank.answer}</span>.{" "}
           </h4>
           <p
-            className={`w-max justify-self-center text-base break-all ${
+            className={`w-max justify-self-center text-lg break-all ${
               correctClick
                 ? "text-green-600 bg-lime-200"
                 : "text-red-800 bg-rose-200"
@@ -153,7 +153,7 @@ const Questions = ({
             {message.line1}
           </p>
           <p
-            className={`w-max justify-self-center text-base break-all ${
+            className={`w-max justify-self-center text-lg break-all ${
               correctClick
                 ? "text-green-600 bg-lime-200"
                 : "text-red-800 bg-rose-200"
@@ -172,14 +172,14 @@ const Questions = ({
           </p>
           <span className="m-1 justify-self-center">
             <button
-              className="bg-green-500 hover:bg-green-400 text-white font-bold py-1 px-4 border-b-4 border-green-700 hover:border-green-500 rounded mx-4"
+              className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-6 border-b-4 border-green-700 hover:border-green-500 rounded mx-4"
               disabled={buttonDisabled}
               onClick={questionTrueClickHandler}
             >
               True
             </button>
             <button
-              className="bg-red-500 hover:bg-red-400 text-white font-bold py-1 px-4 border-b-4 border-red-700 hover:border-red-500 rounded mx-4"
+              className="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-6 border-b-4 border-red-700 hover:border-red-500 rounded mx-4"
               disabled={buttonDisabled}
               onClick={questionFalseClickHandler}
             >
@@ -193,14 +193,14 @@ const Questions = ({
       return (
         <div className="grid m-2 justify-center">
           <h4
-            className="m-1 text-lg break-normal justify-self-center"
+            className="m-1 text-2xl break-normal justify-self-center"
             style={QStyle}
           >
             The common currency(/ies) used in {country} is/are:{" "}
             <span className="font-semibold">{answerBank.answer}</span>.{" "}
           </h4>
           <p
-            className={`w-max justify-self-center text-base break-all ${
+            className={`w-max justify-self-center text-lg break-all ${
               correctClick
                 ? "text-green-600 bg-lime-200"
                 : "text-red-800 bg-rose-200"
@@ -209,7 +209,7 @@ const Questions = ({
             {message.line1}
           </p>
           <p
-            className={`w-max justify-self-center text-base break-all ${
+            className={`w-max justify-self-center text-lg break-all ${
               correctClick
                 ? "text-green-600 bg-lime-200"
                 : "text-red-800 bg-rose-200"
@@ -228,14 +228,14 @@ const Questions = ({
           </p>
           <span className="m-1 justify-self-center">
             <button
-              className="bg-green-500 hover:bg-green-400 text-white font-bold py-1 px-4 border-b-4 border-green-700 hover:border-green-500 rounded mx-4"
+              className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-6 border-b-4 border-green-700 hover:border-green-500 rounded mx-4"
               disabled={buttonDisabled}
               onClick={questionTrueClickHandler}
             >
               True
             </button>
             <button
-              className="bg-red-500 hover:bg-red-400 text-white font-bold py-1 px-4 border-b-4 border-red-700 hover:border-red-500 rounded mx-4"
+              className="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-6 border-b-4 border-red-700 hover:border-red-500 rounded mx-4"
               disabled={buttonDisabled}
               onClick={questionFalseClickHandler}
             >
@@ -249,14 +249,14 @@ const Questions = ({
       return (
         <div className="grid m-2 justify-center">
           <h4
-            className="m-1 text-lg break-normal justify-self-center"
+            className="m-1 text-2xl break-normal justify-self-center"
             style={QStyle}
           >
             A male citizen of {country} known as a(n):{" "}
             <span className="font-semibold">{answerBank.answer}</span>.{" "}
           </h4>
           <p
-            className={`w-max justify-self-center text-base break-all ${
+            className={`w-max justify-self-center text-lg break-all ${
               correctClick
                 ? "text-green-600 bg-lime-200"
                 : "text-red-800 bg-rose-200"
@@ -265,7 +265,7 @@ const Questions = ({
             {message.line1}
           </p>
           <p
-            className={`w-max justify-self-center text-base break-all ${
+            className={`w-max justify-self-center text-lg break-all ${
               correctClick
                 ? "text-green-600 bg-lime-200"
                 : "text-red-800 bg-rose-200"
@@ -284,14 +284,14 @@ const Questions = ({
           </p>
           <span className="m-1 justify-self-center">
             <button
-              className="bg-green-500 hover:bg-green-400 text-white font-bold py-1 px-4 border-b-4 border-green-700 hover:border-green-500 rounded mx-4"
+              className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-6 border-b-4 border-green-700 hover:border-green-500 rounded mx-4"
               disabled={buttonDisabled}
               onClick={questionTrueClickHandler}
             >
               True
             </button>
             <button
-              className="bg-red-500 hover:bg-red-400 text-white font-bold py-1 px-4 border-b-4 border-red-700 hover:border-red-500 rounded mx-4"
+              className="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-6 border-b-4 border-red-700 hover:border-red-500 rounded mx-4"
               disabled={buttonDisabled}
               onClick={questionFalseClickHandler}
             >
@@ -305,14 +305,14 @@ const Questions = ({
       return (
         <div className="grid m-2 justify-center">
           <h4
-            className="m-1 text-lg break-normal justify-self-center"
+            className="m-1 text-2xl break-normal justify-self-center"
             style={QStyle}
           >
             A female citizen of {country} known as a(n):{" "}
             <span className="font-semibold">{answerBank.answer}</span>.{" "}
           </h4>
           <p
-            className={`w-max justify-self-center text-base break-all ${
+            className={`w-max justify-self-center text-lg break-all ${
               correctClick
                 ? "text-green-600 bg-lime-200"
                 : "text-red-800 bg-rose-200"
@@ -321,7 +321,7 @@ const Questions = ({
             {message.line1}
           </p>
           <p
-            className={`w-max justify-self-center text-base break-all ${
+            className={`w-max justify-self-center text-lg break-all ${
               correctClick
                 ? "text-green-600 bg-lime-200"
                 : "text-red-800 bg-rose-200"
@@ -340,14 +340,14 @@ const Questions = ({
           </p>
           <span className="m-1 justify-self-center">
             <button
-              className="bg-green-500 hover:bg-green-400 text-white font-bold py-1 px-4 border-b-4 border-green-700 hover:border-green-500 rounded mx-4"
+              className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-6 border-b-4 border-green-700 hover:border-green-500 rounded mx-4"
               disabled={buttonDisabled}
               onClick={questionTrueClickHandler}
             >
               True
             </button>
             <button
-              className="bg-red-500 hover:bg-red-400 text-white font-bold py-1 px-4 border-b-4 border-red-700 hover:border-red-500 rounded mx-4"
+              className="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-6 border-b-4 border-red-700 hover:border-red-500 rounded mx-4"
               disabled={buttonDisabled}
               onClick={questionFalseClickHandler}
             >
@@ -361,14 +361,14 @@ const Questions = ({
       return (
         <div className="grid m-2 justify-center">
           <h4
-            className="m-1 text-lg break-normal justify-self-center"
+            className="m-1 text-2xl break-normal justify-self-center"
             style={QStyle}
           >
             The approx. population of {country} is{" "}
             <span className="font-semibold">{answerBank.answer}</span> people.{" "}
           </h4>
           <p
-            className={`w-max justify-self-center text-base break-all ${
+            className={`w-max justify-self-center text-lg break-all ${
               correctClick
                 ? "text-green-600 bg-lime-200"
                 : "text-red-800 bg-rose-200"
@@ -377,7 +377,7 @@ const Questions = ({
             {message.line1}
           </p>
           <p
-            className={`w-max justify-self-center text-base break-all ${
+            className={`w-max justify-self-center text-lg break-all ${
               correctClick
                 ? "text-green-600 bg-lime-200"
                 : "text-red-800 bg-rose-200"
@@ -396,14 +396,14 @@ const Questions = ({
           </p>
           <span className="m-1 justify-self-center">
             <button
-              className="bg-green-500 hover:bg-green-400 text-white font-bold py-1 px-4 border-b-4 border-green-700 hover:border-green-500 rounded mx-4"
+              className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-6 border-b-4 border-green-700 hover:border-green-500 rounded mx-4"
               disabled={buttonDisabled}
               onClick={questionTrueClickHandler}
             >
               True
             </button>
             <button
-              className="bg-red-500 hover:bg-red-400 text-white font-bold py-1 px-4 border-b-4 border-red-700 hover:border-red-500 rounded mx-4"
+              className="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-6 border-b-4 border-red-700 hover:border-red-500 rounded mx-4"
               disabled={buttonDisabled}
               onClick={questionFalseClickHandler}
             >
@@ -417,14 +417,14 @@ const Questions = ({
       return (
         <div className="grid m-2 justify-center">
           <h4
-            className="m-1 text-lg break-normal justify-self-center"
+            className="m-1 text-2xl break-normal justify-self-center"
             style={QStyle}
           >
             The dominant language(s) spoken in {country} is/are:{" "}
             <span className="font-semibold">{answerBank.answer}</span>.{" "}
           </h4>
           <p
-            className={`w-max justify-self-center text-base break-all ${
+            className={`w-max justify-self-center text-lg break-all ${
               correctClick
                 ? "text-green-600 bg-lime-200"
                 : "text-red-800 bg-rose-200"
@@ -433,7 +433,7 @@ const Questions = ({
             {message.line1}
           </p>
           <p
-            className={`w-max justify-self-center text-base break-all ${
+            className={`w-max justify-self-center text-lg break-all ${
               correctClick
                 ? "text-green-600 bg-lime-200"
                 : "text-red-800 bg-rose-200"
@@ -452,14 +452,14 @@ const Questions = ({
           </p>
           <span className="m-1 justify-self-center">
             <button
-              className="bg-green-500 hover:bg-green-400 text-white font-bold py-1 px-4 border-b-4 border-green-700 hover:border-green-500 rounded mx-4"
+              className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-6 border-b-4 border-green-700 hover:border-green-500 rounded mx-4"
               disabled={buttonDisabled}
               onClick={questionTrueClickHandler}
             >
               True
             </button>
             <button
-              className="bg-red-500 hover:bg-red-400 text-white font-bold py-1 px-4 border-b-4 border-red-700 hover:border-red-500 rounded mx-4"
+              className="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-6 border-b-4 border-red-700 hover:border-red-500 rounded mx-4"
               disabled={buttonDisabled}
               onClick={questionFalseClickHandler}
             >
@@ -473,14 +473,14 @@ const Questions = ({
       return (
         <div className="grid m-2 justify-center">
           <h4
-            className="m-1 text-lg break-normal justify-self-center"
+            className="m-1 text-2xl break-normal justify-self-center"
             style={QStyle}
           >
             {country} is situated on the continent of:{" "}
             <span className="font-semibold">{answerBank.answer}</span>.{" "}
           </h4>
           <p
-            className={`w-max justify-self-center text-base break-all ${
+            className={`w-max justify-self-center text-lg break-all ${
               correctClick
                 ? "text-green-600 bg-lime-200"
                 : "text-red-800 bg-rose-200"
@@ -489,7 +489,7 @@ const Questions = ({
             {message.line1}
           </p>
           <p
-            className={`w-max justify-self-center text-base break-all ${
+            className={`w-max justify-self-center text-lg break-all ${
               correctClick
                 ? "text-green-600 bg-lime-200"
                 : "text-red-800 bg-rose-200"
@@ -508,14 +508,14 @@ const Questions = ({
           </p>
           <span className="m-1 justify-self-center">
             <button
-              className="bg-green-500 hover:bg-green-400 text-white font-bold py-1 px-4 border-b-4 border-green-700 hover:border-green-500 rounded mx-4"
+              className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-6 border-b-4 border-green-700 hover:border-green-500 rounded mx-4"
               disabled={buttonDisabled}
               onClick={questionTrueClickHandler}
             >
               True
             </button>
             <button
-              className="bg-red-500 hover:bg-red-400 text-white font-bold py-1 px-4 border-b-4 border-red-700 hover:border-red-500 rounded mx-4"
+              className="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-6 border-b-4 border-red-700 hover:border-red-500 rounded mx-4"
               disabled={buttonDisabled}
               onClick={questionFalseClickHandler}
             >
