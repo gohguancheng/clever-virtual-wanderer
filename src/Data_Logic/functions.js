@@ -129,7 +129,7 @@ export const answerGenerator = (topic, countryData, originalData) => {
   if (coinFlip === 1) {
     if (countryData[topic] === "" || countryData[topic] === undefined) {
       info = {
-        answer: "*Unknown / No Official Data*",
+        answer: "*Not Officially Defined*",
         isTrue: true,
       };
     } else {

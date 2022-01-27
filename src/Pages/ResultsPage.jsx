@@ -65,32 +65,32 @@ const ResultsPage = ({ data, quizScore, current, username }) => {
       <ol>
         <li className="text-base">
           The official name of {current.country} is:{" "}
-          <span className="underline">{facts?.officialName}</span>.
+          <span className="underline">{facts?.officialName === "" || facts?.officialName === undefined ? "Not Officially Defined" : facts?.continents}</span>.
         </li>
         <li>
           {current.country} is situated in the continent of:{" "}
-          <span className="underline">{facts?.continents}</span>.
+          <span className="underline">{facts?.continents === "" || facts?.continents === undefined ? "Not Officially Defined" : facts?.continents}</span>.
         </li>
         <li>
           The common currencies used in {current.country} is/are:{" "}
-          <span className="underline">{facts?.currencies}</span>.
+          <span className="underline">{facts?.currencies === "" || facts?.currencies === undefined ? "Not Officially Defined" : facts?.currencies}</span>.
         </li>
         <li>
           The common language(s) spoken in {current.country} is/are:{" "}
-          <span className="underline">{facts?.languages}</span>.
+          <span className="underline">{facts?.languages === "" || facts?.languages === undefined ? "Not Officially Defined" : facts?.languages}</span>.
         </li>
         <li>
           A female citizen of {current.country} is known as a:{" "}
-          <span className="underline">{facts?.femaleCitizen}</span>.
+          <span className="underline">{facts?.femaleCitizen === "" || facts?.femaleCitizen === undefined ? "Not Officially Defined" : facts?.femaleCitizen}</span>.
         </li>
         <li>
           A male citizen of {current.country} is{" "}
           {facts?.femaleCitizen === facts?.maleCitizen ? "also" : null} known as
-          a: <span className="underline">{facts?.maleCitizen}</span>.
+          a: <span className="underline">{facts?.maleCitizen === "" || facts?.maleCitizen === undefined ? "Not Officially Defined" : facts?.maleCitizen}</span>.
         </li>
         <li>
           The capital city of {current.country} is:{" "}
-          <span className="underline">{facts?.capital}</span>.
+          <span className="underline">{facts?.capital === "" || facts?.capital === undefined ? "Not Officially Defined" : facts?.capital}</span>.
         </li>
         <li>
           As at 2021, about{" "}
