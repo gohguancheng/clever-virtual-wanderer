@@ -366,7 +366,7 @@ const Questions = ({
             className="m-1 text-lg break-normal justify-self-center"
             style={QStyle}
           >
-            The official language(s) of {country} is/are:{" "}
+            The dominant language(s) spoken in {country} is/are:{" "}
             <span className="font-semibold">{answerBank.answer}</span>.{" "}
           </h4>
           <p
