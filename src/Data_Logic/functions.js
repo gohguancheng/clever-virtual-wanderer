@@ -64,6 +64,7 @@ const languagesCounter = (obj) => {
 };
 
 export const statsGenerator = (data) => {
+  const name = data?.name.common;
   const officialName = data?.name.official;
   const capital = data?.capital[0];
   const languages = languagesCounter(data?.languages);
@@ -76,6 +77,7 @@ export const statsGenerator = (data) => {
   const continents = data?.continents.join(" & ");
 
   const result = {
+    name: name,
     officialName: officialName,
     languages: languages,
     capital: capital,
@@ -111,6 +113,7 @@ export const answerGenerator = (topic, countryData, originalData) => {
     answer: "no answer generated",
     isTrue: null,
   };
+  const selectedCountry = countryData["name"];
   let result = newObj;
   const coinFlip = doCoinFlip();
   let randomIndex = randomIndexGenerator(originalData, countryData);
@@ -137,6 +140,8 @@ export const answerGenerator = (topic, countryData, originalData) => {
     info = {
       answer: randomCountryStats[topic],
       isTrue: false,
+      correctCountry: randomCountryStats["name"],
+
     };
   }
   result = { ...newObj, ...info };
