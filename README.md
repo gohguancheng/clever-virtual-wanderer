@@ -8,6 +8,8 @@
 
 ## The App
 
+![Virtual View Image](.virtual-viewing.jpg "Woman Viewing Dashboard")
+
 **Simple Trivia App, with cheesy content, that generates a random country for user to "virtually" visit and learn about.**
 
 *The App pulls from restcountries API for information for country trivia quiz and pulls from Unsplash API for images of selected country.*
