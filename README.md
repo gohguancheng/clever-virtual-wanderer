@@ -8,7 +8,7 @@
 
 ## The App
 
-![Virtual View Image](.virtual-viewing.jpg "Woman Viewing Dashboard")
+![Virtual View Image](./virtual-viewing.jpg "Woman Viewing Dashboard")
 
 **Simple Trivia App, with cheesy content, that generates a random country for user to "virtually" visit and learn about.**
 
