@@ -19,7 +19,7 @@ const RegionContainer = ({
   return (
     <div className="flex flex-col m-5 mx-20 hover:">
       <div className="flex order-1 place-self-center ">
-      <h4 className="text-lg font-bold underline"> {region} </h4>
+      <h4 className="text-2xl font-bold underline"> {region} </h4>
       </div>
       <div className="order-2 flex-wrap m-1">
       {regionalButtons}
