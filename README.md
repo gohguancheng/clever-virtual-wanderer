@@ -4,8 +4,8 @@
 
 ### 2nd Project created during General Assembly Software Engineering Immersive Bootcamp
 
-*JS Library: React*
-*Build Tool: Vite*
+*JS Library: React* <br /> 
+*Build Tool: Vite* <br /> 
 *Styling Framework: Tailwind CSS*
 
 ## The App
