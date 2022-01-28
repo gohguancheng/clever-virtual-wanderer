@@ -10,6 +10,7 @@ const NavigationBar = ( { status, current } ) => {
       {(current.country === undefined) ? null : (<Link to="regions"> <li className="bg-green-300 rounded-lg p-1 text-sm m-2 text-blue-900 hover:font-black">🌏Globe</li> </Link>)}
       
   </ul>
+  <h4 className='text-xs font-thin text-blue-900'>😊 Data Credits: REST Countries, Unsplash. </h4>
   {(status === "Countries data received") ? null : (<h4 className='text-xs font-thin text-blue-900'>⚒️Data Status: {status} </h4>) }
   </div>;
 };
