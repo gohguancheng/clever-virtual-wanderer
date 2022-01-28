@@ -17,6 +17,12 @@ Source: https://pixabay.com/images/id-6929333/
 
 *The App pulls from restcountries API for information for country trivia quiz and pulls from Unsplash API for images of selected country.*
 
+********
+<br />
+Contents
+<br />
+********
+
 NavBar: Home - About - *Globe (shown later)*
 
 1. HomePage
