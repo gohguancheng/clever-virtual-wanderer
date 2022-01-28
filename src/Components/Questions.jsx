@@ -40,7 +40,7 @@ const Questions = ({
         {...message, ...{line1: `Sorry, the above is false!`, line2:`"${countryData[topic] === "" || countryData[topic] === undefined ? "*Not Officially Defined*" : countryData[topic]}" is in fact the correct answer.` ,}}
       );
       setCorrection(
-        `Trivia: '${answerBank.answer}' would be a valid answer for the country of ${answerBank.matchCountry} from the '${answerBank.matchRegion}' continent.`
+        `Trivia: '${answerBank.answer}' would be a valid answer for the country of ${answerBank.matchCountry} from the '${answerBank.matchRegion}' region.`
       );
       setQStyle({ color: "red" });
       setCorrectClick(false);
@@ -55,7 +55,7 @@ const Questions = ({
         {...message, ...{line1: `Yes, the above is false!`, line2:`"${countryData[topic] === "" || countryData[topic] === undefined ? "*Not Officially Defined*" : countryData[topic]}" would be the correct answer.` ,}}
       );
       setCorrection(
-        `Trivia: '${answerBank.answer}' would be a valid answer for the country of ${answerBank.matchCountry} from the '${answerBank.matchRegion}' continent.`
+        `Trivia: '${answerBank.answer}' would be a valid answer for the country of ${answerBank.matchCountry} from the '${answerBank.matchRegion}' region.`
       );
       setQStyle({ color: "red" });
       setQuizScore((prev) => prev + 1);
