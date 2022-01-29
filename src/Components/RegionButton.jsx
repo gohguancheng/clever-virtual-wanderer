@@ -42,7 +42,7 @@ const RegionButton = ({ data, subregion, setCurrent }) => {
     return    ( <div className="w-fit inline flex-wrap">
     <Link to={`/${subregion}/GroundControl`}>
       <button
-        className="m-1 w-36 h-16 no-underline box-border inline cursor-pointer outline-0 border-0 bg-lime-400 rounded-3xl text-base font-semibold text-green-900 bg-auto shadow-xl"
+        className="m-1 w-36 h-16 no-underline box-border inline cursor-pointer outline-0 border-0 bg-blue-800 rounded-full text-base font-semibold text-blue-50 bg-auto shadow-xl"
         id={`${subregion}`}
         onClick={() => handleAssignCountry(subregion)}
       >
@@ -57,7 +57,7 @@ const RegionButton = ({ data, subregion, setCurrent }) => {
       <div className="w-fit inline flex-wrap">
       <Link to={`${subregion}/countries`}>
         <button
-          className="text-xl m-1 w-40 px-1 h-20 no-underline box-border inline cursor-pointer outline-0 border-0 bg-lime-400 rounded-3xl text-base font-semibold text-green-900 bg-auto shadow-xl"
+          className="text-xl m-1 w-40 px-1 h-20 no-underline box-border inline cursor-pointer outline-0 border-0 bg-lime-400 rounded-full text-base font-semibold text-blue-800 bg-auto shadow-xl"
           id={`${subregion}`}
           onClick={() => handleAssignCountry(subregion)}
         >

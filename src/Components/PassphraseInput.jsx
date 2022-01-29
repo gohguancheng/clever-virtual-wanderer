@@ -3,12 +3,15 @@ import React, { useState, useEffect, useRef } from "react";
 const PassphraseInput = ({ username, setPassphraseInput, PASSPHRASE }) => {
   const [showHint, setShowHint] = useState(false);
   const [hintText, setHintText] = useState(null);
-  
-  
+  const [statusText, setStatusText] = useState(null)
+
   const input = useRef(); //useRef returns an object with { current : {value : 'ref - referencedData'} }
 
   const passphraseChecker = () => {
-    setPassphraseInput(input.current.value); 
+    setPassphraseInput(input.current.value);
+    setStatusText("Incorrect passphrase detected. Passphrase should be case-sensitive.");
+    console.log(input.current.value);
+    if (input.current.value === "") setStatusText(null);
   };
 
   useEffect(() => {
@@ -44,7 +47,7 @@ const PassphraseInput = ({ username, setPassphraseInput, PASSPHRASE }) => {
         type="text"
         placeholder="Enter secret passphrase"
       ></input>
-
+      <div className="m-2 text-xs">{statusText}</div>
     </div>
   );
 };
