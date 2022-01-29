@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import AnswersContainer from "./AnswersContainer";
 import { answerGenerator } from "../Data_Logic/functions";
 
 const Questions = ({
@@ -6,13 +7,12 @@ const Questions = ({
   data,
   topic,
   country,
-  quizScore,
   setQuizScore,
   setQuestionsAnswered,
 }) => {
   const [QStyle, setQStyle] = useState({ color: "navy" });
   const [correctClick, setCorrectClick] = useState();
-  const [message, setMessage] = useState({line1:null,line2:null,});
+  const [messages, setMessages] = useState({line1:null,line2:null,});
   const [correction, setCorrection] = useState(null);
   const [answerBank, setAnswerBank] = useState({});
   const [buttonDisabled, setButtonDisabled] = useState(false);
@@ -28,16 +28,16 @@ const Questions = ({
     setQuestionsAnswered((prev) => prev + 1);
     setButtonDisabled(true);
     if (answerBank.isTrue || answerBank.answer === countryData[topic]) {
-      setMessage( 
-        {...message, ...{line1: `You got it, the above is true!`, line2:`"${answerBank.answer}" is indeed the correct answer.`}}
+      setMessages( 
+        {...messages, ...{line1: `You got it, the above is true!`, line2:`"${answerBank.answer}" is indeed the correct answer.`}}
       );
       setQStyle({ color: "green" });
       setQuizScore((prev) => prev + 1);
       setCorrectClick(true);
       event.target.id = "correct-click";
     } else {
-      setMessage(
-        {...message, ...{line1: `Sorry, the above is false!`, line2:`"${countryData[topic] === "" || countryData[topic] === undefined ? "*Not Officially Defined*" : countryData[topic]}" is in fact the correct answer.` ,}}
+      setMessages(
+        {...messages, ...{line1: `Sorry, the above is false!`, line2:`"${countryData[topic] === "" || countryData[topic] === undefined ? "*Not Officially Defined*" : countryData[topic]}" is in fact the correct answer.` ,}}
       );
       setCorrection(
         `Trivia: '${answerBank.answer}' would be a valid answer for the country of ${answerBank.matchCountry} from the '${answerBank.matchRegion}' region.`
@@ -51,8 +51,8 @@ const Questions = ({
     setQuestionsAnswered((prev) => prev + 1);
     setButtonDisabled(true);
     if (!answerBank.isTrue) {
-      setMessage(
-        {...message, ...{line1: `Yes, the above is false!`, line2:`"${countryData[topic] === "" || countryData[topic] === undefined ? "*Not Officially Defined*" : countryData[topic]}" would be the correct answer.` ,}}
+      setMessages(
+        {...messages, ...{line1: `Yes, the above is false!`, line2:`"${countryData[topic] === "" || countryData[topic] === undefined ? "*Not Officially Defined*" : countryData[topic]}" would be the correct answer.` ,}}
       );
       setCorrection(
         `Trivia: '${answerBank.answer}' would be a valid answer for the country of ${answerBank.matchCountry} from the '${answerBank.matchRegion}' region.`
@@ -62,8 +62,8 @@ const Questions = ({
       setCorrectClick(true);
       event.target.id = "correct-click";
     } else {
-      setMessage(
-        {...message, ...{line1: `Sorry, the above is true!`, line2:`"${answerBank.answer}" is actually the correct answer.` ,}}
+      setMessages(
+        {...messages, ...{line1: `Sorry, the above is true!`, line2:`"${answerBank.answer}" is actually the correct answer.` ,}}
       );
       setQStyle({ color: "green" });
       setCorrectClick(false);
@@ -86,52 +86,10 @@ const Questions = ({
             </span>
             .{" "}
           </h4>
-          <p
-            className={`w-max justify-self-center text-lg break-all ${
-              correctClick
-                ? "text-green-600 bg-lime-200"
-                : "text-red-800 bg-rose-200"
-            }`}
-          >
-            {message.line1}
-          </p>
-          <p
-            className={`w-max justify-self-center text-lg break-all ${
-              correctClick
-                ? "text-green-600 bg-lime-200"
-                : "text-red-800 bg-rose-200"
-            }`}
-          >
-            {message.line2}
-          </p>
-          <p
-            className={`pt-2 w-max justify-self-center text-sm font-semibold break-all ${
-              correctClick
-                ? "text-green-600 bg-lime-200"
-                : "text-red-800 bg-rose-200"
-            }`}
-          >
-            {correction}
-          </p>
-          <span className="m-1 justify-self-center">
-            <button
-              className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-6 border-b-4 border-green-700 hover:border-green-500 rounded mx-4"
-              disabled={buttonDisabled}
-              onClick={questionTrueClickHandler}
-            >
-              True
-            </button>
-            <button
-              className="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-6 border-b-4 border-red-700 hover:border-red-500 rounded mx-4"
-              disabled={buttonDisabled}
-              onClick={questionFalseClickHandler}
-            >
-              False
-            </button>
-          </span>
+        <AnswersContainer correctClick={correctClick} messages={messages} correction={correction} buttonDisabled={buttonDisabled} questionTrueClickHandler={questionTrueClickHandler} questionFalseClickHandler={questionFalseClickHandler} />
         </div>
       );
-      break;
+
     case "capital":
       return (
         <div className="grid m-2 justify-center">
@@ -142,52 +100,10 @@ const Questions = ({
             The capital city of {country} is:{" "}
             <span className="font-semibold">{answerBank.answer}</span>.{" "}
           </h4>
-          <p
-            className={`w-max justify-self-center text-lg break-all ${
-              correctClick
-                ? "text-green-600 bg-lime-200"
-                : "text-red-800 bg-rose-200"
-            }`}
-          >
-            {message.line1}
-          </p>
-          <p
-            className={`w-max justify-self-center text-lg break-all ${
-              correctClick
-                ? "text-green-600 bg-lime-200"
-                : "text-red-800 bg-rose-200"
-            }`}
-          >
-            {message.line2}
-          </p>
-          <p
-            className={`pt-2 w-max justify-self-center text-xs font-semibold break-all ${
-              correctClick
-                ? "text-green-600 bg-lime-200"
-                : "text-red-800 bg-rose-200"
-            }`}
-          >
-            {correction}
-          </p>
-          <span className="m-1 justify-self-center">
-            <button
-              className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-6 border-b-4 border-green-700 hover:border-green-500 rounded mx-4"
-              disabled={buttonDisabled}
-              onClick={questionTrueClickHandler}
-            >
-              True
-            </button>
-            <button
-              className="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-6 border-b-4 border-red-700 hover:border-red-500 rounded mx-4"
-              disabled={buttonDisabled}
-              onClick={questionFalseClickHandler}
-            >
-              False
-            </button>
-          </span>
+          <AnswersContainer correctClick={correctClick} messages={messages} correction={correction} buttonDisabled={buttonDisabled} questionTrueClickHandler={questionTrueClickHandler} questionFalseClickHandler={questionFalseClickHandler} />
         </div>
       );
-      break;
+
     case "currencies":
       return (
         <div className="grid m-2 justify-center">
@@ -198,52 +114,10 @@ const Questions = ({
             The common currency(/ies) used in {country} is/are:{" "}
             <span className="font-semibold">{answerBank.answer}</span>.{" "}
           </h4>
-          <p
-            className={`w-max justify-self-center text-lg break-all ${
-              correctClick
-                ? "text-green-600 bg-lime-200"
-                : "text-red-800 bg-rose-200"
-            }`}
-          >
-            {message.line1}
-          </p>
-          <p
-            className={`w-max justify-self-center text-lg break-all ${
-              correctClick
-                ? "text-green-600 bg-lime-200"
-                : "text-red-800 bg-rose-200"
-            }`}
-          >
-            {message.line2}
-          </p>
-          <p
-            className={`pt-2 w-max justify-self-center text-xs font-semibold break-all ${
-              correctClick
-                ? "text-green-600 bg-lime-200"
-                : "text-red-800 bg-rose-200"
-            }`}
-          >
-            {correction}
-          </p>
-          <span className="m-1 justify-self-center">
-            <button
-              className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-6 border-b-4 border-green-700 hover:border-green-500 rounded mx-4"
-              disabled={buttonDisabled}
-              onClick={questionTrueClickHandler}
-            >
-              True
-            </button>
-            <button
-              className="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-6 border-b-4 border-red-700 hover:border-red-500 rounded mx-4"
-              disabled={buttonDisabled}
-              onClick={questionFalseClickHandler}
-            >
-              False
-            </button>
-          </span>
+          <AnswersContainer correctClick={correctClick} messages={messages} correction={correction} buttonDisabled={buttonDisabled} questionTrueClickHandler={questionTrueClickHandler} questionFalseClickHandler={questionFalseClickHandler} />
         </div>
       );
-      break;
+
     case "maleCitizen":
       return (
         <div className="grid m-2 justify-center">
@@ -254,52 +128,10 @@ const Questions = ({
             A male citizen of {country} known as a(n):{" "}
             <span className="font-semibold">{answerBank.answer}</span>.{" "}
           </h4>
-          <p
-            className={`w-max justify-self-center text-lg break-all ${
-              correctClick
-                ? "text-green-600 bg-lime-200"
-                : "text-red-800 bg-rose-200"
-            }`}
-          >
-            {message.line1}
-          </p>
-          <p
-            className={`w-max justify-self-center text-lg break-all ${
-              correctClick
-                ? "text-green-600 bg-lime-200"
-                : "text-red-800 bg-rose-200"
-            }`}
-          >
-            {message.line2}
-          </p>
-          <p
-            className={`pt-2 w-max justify-self-center text-xs font-semibold break-all ${
-              correctClick
-                ? "text-green-600 bg-lime-200"
-                : "text-red-800 bg-rose-200"
-            }`}
-          >
-            {correction}
-          </p>
-          <span className="m-1 justify-self-center">
-            <button
-              className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-6 border-b-4 border-green-700 hover:border-green-500 rounded mx-4"
-              disabled={buttonDisabled}
-              onClick={questionTrueClickHandler}
-            >
-              True
-            </button>
-            <button
-              className="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-6 border-b-4 border-red-700 hover:border-red-500 rounded mx-4"
-              disabled={buttonDisabled}
-              onClick={questionFalseClickHandler}
-            >
-              False
-            </button>
-          </span>
+          <AnswersContainer correctClick={correctClick} messages={messages} correction={correction} buttonDisabled={buttonDisabled} questionTrueClickHandler={questionTrueClickHandler} questionFalseClickHandler={questionFalseClickHandler} />
         </div>
       );
-      break;
+
     case "femaleCitizen":
       return (
         <div className="grid m-2 justify-center">
@@ -310,52 +142,10 @@ const Questions = ({
             A female citizen of {country} known as a(n):{" "}
             <span className="font-semibold">{answerBank.answer}</span>.{" "}
           </h4>
-          <p
-            className={`w-max justify-self-center text-lg break-all ${
-              correctClick
-                ? "text-green-600 bg-lime-200"
-                : "text-red-800 bg-rose-200"
-            }`}
-          >
-            {message.line1}
-          </p>
-          <p
-            className={`w-max justify-self-center text-lg break-all ${
-              correctClick
-                ? "text-green-600 bg-lime-200"
-                : "text-red-800 bg-rose-200"
-            }`}
-          >
-            {message.line2}
-          </p>
-          <p
-            className={`pt-2 w-max justify-self-center text-xs font-semibold break-all ${
-              correctClick
-                ? "text-green-600 bg-lime-200"
-                : "text-red-800 bg-rose-200"
-            }`}
-          >
-            {correction}
-          </p>
-          <span className="m-1 justify-self-center">
-            <button
-              className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-6 border-b-4 border-green-700 hover:border-green-500 rounded mx-4"
-              disabled={buttonDisabled}
-              onClick={questionTrueClickHandler}
-            >
-              True
-            </button>
-            <button
-              className="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-6 border-b-4 border-red-700 hover:border-red-500 rounded mx-4"
-              disabled={buttonDisabled}
-              onClick={questionFalseClickHandler}
-            >
-              False
-            </button>
-          </span>
+          <AnswersContainer correctClick={correctClick} messages={messages} correction={correction} buttonDisabled={buttonDisabled} questionTrueClickHandler={questionTrueClickHandler} questionFalseClickHandler={questionFalseClickHandler} />
         </div>
       );
-      break;
+
     case "population":
       return (
         <div className="grid m-2 justify-center">
@@ -366,49 +156,7 @@ const Questions = ({
             The approx. population of {country} is{" "}
             <span className="font-semibold">{answerBank.answer}</span> people.{" "}
           </h4>
-          <p
-            className={`w-max justify-self-center text-lg break-all ${
-              correctClick
-                ? "text-green-600 bg-lime-200"
-                : "text-red-800 bg-rose-200"
-            }`}
-          >
-            {message.line1}
-          </p>
-          <p
-            className={`w-max justify-self-center text-lg break-all ${
-              correctClick
-                ? "text-green-600 bg-lime-200"
-                : "text-red-800 bg-rose-200"
-            }`}
-          >
-            {message.line2}
-          </p>
-          <p
-            className={`pt-2 w-max justify-self-center text-xs font-semibold break-all ${
-              correctClick
-                ? "text-green-600 bg-lime-200"
-                : "text-red-800 bg-rose-200"
-            }`}
-          >
-            {correction}
-          </p>
-          <span className="m-1 justify-self-center">
-            <button
-              className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-6 border-b-4 border-green-700 hover:border-green-500 rounded mx-4"
-              disabled={buttonDisabled}
-              onClick={questionTrueClickHandler}
-            >
-              True
-            </button>
-            <button
-              className="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-6 border-b-4 border-red-700 hover:border-red-500 rounded mx-4"
-              disabled={buttonDisabled}
-              onClick={questionFalseClickHandler}
-            >
-              False
-            </button>
-          </span>
+          <AnswersContainer correctClick={correctClick} messages={messages} correction={correction} buttonDisabled={buttonDisabled} questionTrueClickHandler={questionTrueClickHandler} questionFalseClickHandler={questionFalseClickHandler} />
         </div>
       );
       break;
@@ -422,49 +170,7 @@ const Questions = ({
             The dominant language(s) spoken in {country} is/are:{" "}
             <span className="font-semibold">{answerBank.answer}</span>.{" "}
           </h4>
-          <p
-            className={`w-max justify-self-center text-lg break-all ${
-              correctClick
-                ? "text-green-600 bg-lime-200"
-                : "text-red-800 bg-rose-200"
-            }`}
-          >
-            {message.line1}
-          </p>
-          <p
-            className={`w-max justify-self-center text-lg break-all ${
-              correctClick
-                ? "text-green-600 bg-lime-200"
-                : "text-red-800 bg-rose-200"
-            }`}
-          >
-            {message.line2}
-          </p>
-          <p
-            className={`pt-2 w-max justify-self-center text-xs font-semibold break-all ${
-              correctClick
-                ? "text-green-600 bg-lime-200"
-                : "text-red-800 bg-rose-200"
-            }`}
-          >
-            {correction}
-          </p>
-          <span className="m-1 justify-self-center">
-            <button
-              className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-6 border-b-4 border-green-700 hover:border-green-500 rounded mx-4"
-              disabled={buttonDisabled}
-              onClick={questionTrueClickHandler}
-            >
-              True
-            </button>
-            <button
-              className="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-6 border-b-4 border-red-700 hover:border-red-500 rounded mx-4"
-              disabled={buttonDisabled}
-              onClick={questionFalseClickHandler}
-            >
-              False
-            </button>
-          </span>
+          <AnswersContainer correctClick={correctClick} messages={messages} correction={correction} buttonDisabled={buttonDisabled} questionTrueClickHandler={questionTrueClickHandler} questionFalseClickHandler={questionFalseClickHandler} />
         </div>
       );
       break;
@@ -478,49 +184,7 @@ const Questions = ({
             {country} is situated on the continent of:{" "}
             <span className="font-semibold">{answerBank.answer}</span>.{" "}
           </h4>
-          <p
-            className={`w-max justify-self-center text-lg break-all ${
-              correctClick
-                ? "text-green-600 bg-lime-200"
-                : "text-red-800 bg-rose-200"
-            }`}
-          >
-            {message.line1}
-          </p>
-          <p
-            className={`w-max justify-self-center text-lg break-all ${
-              correctClick
-                ? "text-green-600 bg-lime-200"
-                : "text-red-800 bg-rose-200"
-            }`}
-          >
-            {message.line2}
-          </p>
-          <p
-            className={`pt-2 w-max justify-self-center text-xs font-semibold break-all ${
-              correctClick
-                ? "text-green-600 bg-lime-200"
-                : "text-red-800 bg-rose-200"
-            }`}
-          >
-            {correction}
-          </p>
-          <span className="m-1 justify-self-center">
-            <button
-              className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-6 border-b-4 border-green-700 hover:border-green-500 rounded mx-4"
-              disabled={buttonDisabled}
-              onClick={questionTrueClickHandler}
-            >
-              True
-            </button>
-            <button
-              className="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-6 border-b-4 border-red-700 hover:border-red-500 rounded mx-4"
-              disabled={buttonDisabled}
-              onClick={questionFalseClickHandler}
-            >
-              False
-            </button>
-          </span>
+          <AnswersContainer correctClick={correctClick} messages={messages} correction={correction} buttonDisabled={buttonDisabled} questionTrueClickHandler={questionTrueClickHandler} questionFalseClickHandler={questionFalseClickHandler} />
         </div>
       );
     default:

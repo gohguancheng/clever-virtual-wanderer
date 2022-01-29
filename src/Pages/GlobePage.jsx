@@ -5,7 +5,7 @@ import RegionContainer from "../Components/RegionContainer";
 const GlobePage = ({ data, regions, current, setCurrent, setQuizScore }) => {
     //*map regions buttons
     const regionalCountriesContainers = regions.map((element, i) => <RegionContainer key={i} data={data} region={Object.keys(element)[0]} regionCountries={element[Object.keys(element)[0]]} setCurrent={setCurrent} />);
-   setQuizScore(0);
+   setQuizScore(prev => prev = 0);
   return (
       
   <div>

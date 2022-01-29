@@ -50,6 +50,7 @@ const ResultsPage = ({ data, quizScore, current, username }) => {
     facts?.population !== undefined
       ? Math.round((facts?.population / 1000000) * 100) / 100
       : null;
+
   return (
     <div>
       <h1 className="m-5 text-4xl font-bold">
@@ -65,72 +66,118 @@ const ResultsPage = ({ data, quizScore, current, username }) => {
       <ol>
         <li className="text-base">
           The official name of {current.country} is:{" "}
-          <span className="underline">{facts?.officialName === "" || facts?.officialName === undefined ? "Not Officially Defined" : facts?.continents}</span>.
+          <span className="underline">
+            {facts?.officialName === "" || facts?.officialName === undefined
+              ? "Not Officially Defined"
+              : facts?.continents}
+          </span>
+          .
         </li>
         <li>
           {current.country} is situated in the continent of:{" "}
-          <span className="underline">{facts?.continents === "" || facts?.continents === undefined ? "Not Officially Defined" : facts?.continents}</span>.
+          <span className="underline">
+            {facts?.continents === "" || facts?.continents === undefined
+              ? "Not Officially Defined"
+              : facts?.continents}
+          </span>
+          .
         </li>
         <li>
           The common currencies used in {current.country} is/are:{" "}
-          <span className="underline">{facts?.currencies === "" || facts?.currencies === undefined ? "Not Officially Defined" : facts?.currencies}</span>.
+          <span className="underline">
+            {facts?.currencies === "" || facts?.currencies === undefined
+              ? "Not Officially Defined"
+              : facts?.currencies}
+          </span>
+          .
         </li>
         <li>
           The common language(s) spoken in {current.country} is/are:{" "}
-          <span className="underline">{facts?.languages === "" || facts?.languages === undefined ? "Not Officially Defined" : facts?.languages}</span>.
+          <span className="underline">
+            {facts?.languages === "" || facts?.languages === undefined
+              ? "Not Officially Defined"
+              : facts?.languages}
+          </span>
+          .
         </li>
         <li>
           A female citizen of {current.country} is known as a:{" "}
-          <span className="underline">{facts?.femaleCitizen === "" || facts?.femaleCitizen === undefined ? "Not Officially Defined" : facts?.femaleCitizen}</span>.
+          <span className="underline">
+            {facts?.femaleCitizen === "" || facts?.femaleCitizen === undefined
+              ? "Not Officially Defined"
+              : facts?.femaleCitizen}
+          </span>
+          .
         </li>
         <li>
           A male citizen of {current.country} is{" "}
           {facts?.femaleCitizen === facts?.maleCitizen ? "also" : null} known as
-          a: <span className="underline">{facts?.maleCitizen === "" || facts?.maleCitizen === undefined ? "Not Officially Defined" : facts?.maleCitizen}</span>.
+          a:{" "}
+          <span className="underline">
+            {facts?.maleCitizen === "" || facts?.maleCitizen === undefined
+              ? "Not Officially Defined"
+              : facts?.maleCitizen}
+          </span>
+          .
         </li>
         <li>
           The capital city of {current.country} is:{" "}
-          <span className="underline">{facts?.capital === "" || facts?.capital === undefined ? "Not Officially Defined" : facts?.capital}</span>.
+          <span className="underline">
+            {facts?.capital === "" || facts?.capital === undefined
+              ? "Not Officially Defined"
+              : facts?.capital}
+          </span>
+          .
         </li>
         <li>
           As at 2021, about{" "}
-          <span className="underline"> {(populationInMil > 0) ? `${populationInMil} million` : facts?.population }</span> people live
-          in {current.country}.
+          <span className="underline">
+            {" "}
+            {populationInMil > 0
+              ? `${populationInMil} million`
+              : facts?.population}
+          </span>{" "}
+          people live in {current.country}.
         </li>
         <li>
           As at 2021, {current.country}{" "}
           <span className="underline">
             {" "}
-            is {facts?.isUNMember ? null : "not"} a member</span>{" "}
+            is {facts?.isUNMember ? null : "not"} a member
+          </span>{" "}
           of the United Nations.
         </li>
       </ol>
       <div className="m-4">
         <h4 className="text-lg font-bold">
-          Here are some images related to{" "}
-          {current.country}!
+          Below are some images related to {current.country}!
         </h4>
-        <p className="m-2 text-sm font-semibold">2 images displayed for each point earned from the quiz.(
-          {quizScore} X 2 = {quizScore * 2} 📷) (credits: 'Unsplash.com')</p>
-          </div>
+        <p className="m-2 text-sm font-semibold">
+          Number of images unlocked based on quiz score = {quizScore * 2} (2 📷
+          per point earned)
+        </p>
+        <p className="m-2 text-sm font-semibold">
+          Actual number of images fetched courtesy of 'Unsplash.com' database:{" "}
+          {imageLinks?.length === undefined ? "images loading.." : imageLinks?.length} 📷
+        </p>
+      </div>
 
-        {IMGStatus !== imageDataMessage.done ? (
-          IMGStatus
-        ) : (
-          <ImageDisplay
-            country={current.country}
-            score={quizScore}
-            source={imageLinks}
-          />
-        )}
-  <div>
-  <Link to={`/regions`}>
-        <button className="m-4 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-          Back to Globe
-        </button>
-      </Link>
-  </div>
-
+      {IMGStatus !== imageDataMessage.done ? (
+        IMGStatus
+      ) : (
+        <ImageDisplay
+          country={current.country}
+          score={quizScore}
+          source={imageLinks}
+        />
+      )}
+      <div>
+        <Link to={`/regions`}>
+          <button className="m-4 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+            Back to Globe
+          </button>
+        </Link>
+      </div>
     </div>
   );
 };

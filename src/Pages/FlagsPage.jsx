@@ -18,7 +18,10 @@ const FlagsPage = ({ data, current }) => {
   });
   const flags = data
     .filter((element) => {
-      return element.subregion === currentRegion;
+      let comparator;
+      if (currentRegion === "Antarctica & Southern Ocean") comparator = "";
+      else comparator = currentRegion;
+      return element.subregion === comparator;
     })
     .map((element, i) => {
       return (
