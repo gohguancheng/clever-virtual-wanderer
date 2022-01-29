@@ -16,7 +16,7 @@ const SpaceOddityPage = () => {
     } )
 
   return(
-  <div className="bg-cover h-full bg-right" style={{backgroundImage : `url(${shuttleImage})`}}>
+  <div className="bg-cover h-full bg-center" style={{backgroundImage : `url(${shuttleImage})`}}>
     <div className='flex-inline flex-col flex-nowrap bg-cyan-100 bg-opacity-75 h-full'>
       <h4 className="pt-8 pb-4 text-3xl font-bold">A Quick Game Before Your <span className='underline'>Out Of This World</span>  Experience. 🚀</h4>  
       <p className="text-xl">
