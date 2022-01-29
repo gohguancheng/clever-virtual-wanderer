@@ -8,7 +8,7 @@ const ImageDisplay = ({ source }) => {
         setGallery(array);
     } ,[source])
     
-  return <div className='p-4 h-full w-auto flex flex-row flex-wrap justify-center'>
+  return <div className='px-2 p-1 h-full w-auto flex flex-row flex-wrap justify-center'>
       {gallery}
   </div>;
 };

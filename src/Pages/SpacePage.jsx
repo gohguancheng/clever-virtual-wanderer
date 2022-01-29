@@ -35,7 +35,7 @@ const SpacePage = ({username, current}) => {
     }
   }, [IMGStatus]);
   return (
-    <div className="px-16 h-full">
+    <div className="px-4 h-full">
       <div>
         <h1 className="m-5 text-4xl font-bold">
           Welcome to Outer Space, {username}. 🥳
@@ -50,7 +50,7 @@ const SpacePage = ({username, current}) => {
         </h4>
 
       </div>
-      <div className="flex h-auto w-auto bg-cyan-600 bg-opacity-25 rounded-3xl">
+      <div className="flex h-auto w-auto bg-cyan-600 bg-opacity-25 rounded-xl">
       {IMGStatus !== imageDataMessage.done ? (
         IMGStatus
       ) : (

@@ -53,7 +53,7 @@ const ResultsPage = ({ data, quizScore, current, username }) => {
       : null;
      
   return (
-    <div className="px-16 h-full">
+    <div className="px-4 h-full">
       <h1 className="m-5 text-4xl font-bold">
         Welcome to {current.country}, {username}. 🥳
       </h1>
@@ -162,7 +162,7 @@ const ResultsPage = ({ data, quizScore, current, username }) => {
           {imageLinks?.length === undefined ? "images loading.." : imageLinks?.length} 📷
         </p>
       </div>
-      <div className="flex h-auto w-auto bg-cyan-600 bg-opacity-25 rounded-3xl">
+      <div className="flex h-auto w-auto bg-cyan-600 bg-opacity-25 rounded-xl">
       {IMGStatus !== imageDataMessage.done ? (
         IMGStatus
       ) : (
