@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import SpaceOddityGuessPanel from '../Components/SpaceOddityGuessPanel';
 import { Link } from 'react-router-dom';
-
-
+import shuttleImage from '../Images/takeoff.png'
 
 const SpaceOddityPage = () => {
     const [statement, setStatement] = useState(["-", "-", "-", "-", "-", "-", "-","-", "-", "-",])
@@ -22,7 +21,10 @@ const SpaceOddityPage = () => {
         <br/>Correctly guessing the statement will unlock your button to the next page. 🧑‍🚀
       </p>
       {isUnlocked ? <Link to={`/Out%20Of%20This%20World/space`}><button className="m-4 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">To Infinity & Beyond!</button></Link> : null} 
-      <div className='m-4'>
+      <div className='m-2'>
+      <div className='flex mb-4 h-60 aspect-auto justify-center'>
+        <img src={shuttleImage} title="Space Shuttle Take Off" />
+        </div>
          <div className='flex flex-row flex-wrap justify-center'>
         {statementDisplay}
          </div>
