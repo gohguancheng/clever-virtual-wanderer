@@ -33,6 +33,9 @@ const QuizPage = ({data, quizScore, setQuizScore}) => {
       {arrayOfQuestions}
       </div>
       <p className="p-4 text-xl font-base font-black tracking-widest">--- End Of Quiz ---</p>
+      {(questionsAnswered === 7) ? (<Link to={`/${regionName}/${countryName}/results`}>
+          <button className="m-4 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"> Click here to check out {countryName}! </button>
+        </Link>):null}
        </div>)
 };
 export default QuizPage;
