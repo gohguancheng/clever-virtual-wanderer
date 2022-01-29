@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 
 const NavigationBar = ( { status, current } ) => {
-  return <div className = "h-max w-screen bg-yellow-200">
+  return <div className = "h-max w-full bg-yellow-200">
   <ul className='flex justify-center'>
 
     <Link to="/"> <li className="bg-green-300 rounded-lg p-1 text-sm m-1 text-blue-900 hover:font-black">🏡Home</li> </Link> 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SpaceOddityGuessPanel from '../Components/SpaceOddityGuessPanel';
 import { Link } from 'react-router-dom';
 import shuttleImage from '../Images/takeoff.png'
@@ -6,6 +6,8 @@ import shuttleImage from '../Images/takeoff.png'
 const SpaceOddityPage = () => {
     const [statement, setStatement] = useState(["-", "-", "-", "-", "-", "-", "-","-", "-", "-",])
     const [isUnlocked, setIsUnlocked] = useState(false)
+    
+    useEffect(()=>window.scrollTo(0, 0), []);
 
     if (statement === ["Space", "Oddity", "by", "David", "Bowie", "is", "a", "pretty","cool", "song"]) return setIsUnlocked(true);
 
@@ -22,7 +24,7 @@ const SpaceOddityPage = () => {
         <br/>Click on the <span className='bg-blue-800 text-white font-semibold px-1'>buttons</span> below to guess the statement.
         <br/>Correctly guessing the statement will unlock the button to access the next page. 🧑‍🚀
       </p>
-      {isUnlocked ? <Link to={`/Out%20Of%20This%20World/space`}><button className="mt-10 mb-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">To Infinity & Beyond!</button></Link> : null} 
+      {isUnlocked ? <Link to={`/Out%20Of%20This%20World/space`}><button className="mt-10 mb-2 bg-red-600 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-800 hover:border-red-500 rounded-full">To Infinity & Beyond!</button></Link> : null} 
       <div className='m-2'>
          <div className='m-8 py-2 flex flex-row flex-wrap justify-center'>
         {statementDisplay}

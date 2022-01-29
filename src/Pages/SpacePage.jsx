@@ -12,6 +12,7 @@ const imageDataMessage = {
 
 const spaceQueryTerms = ["nasa", "milkyway", "galaxy", "universe"]
 const SpacePage = ({username, current}) => {
+  useEffect(()=>window.scrollTo(0, 0), []);
   const [imageFullData, setImageFullData] = useState();
   const [IMGStatus, setIMGStatus] = useState();
   const [imageLinks, setImageLinks] = useState();
@@ -34,7 +35,7 @@ const SpacePage = ({username, current}) => {
     }
   }, [IMGStatus]);
   return (
-    <div>
+    <div className="px-16 h-full">
       <div>
         <h1 className="m-5 text-4xl font-bold">
           Welcome to Outer Space, {username}. 🥳
@@ -49,7 +50,7 @@ const SpacePage = ({username, current}) => {
         </h4>
 
       </div>
-
+      <div className="flex h-auto w-auto bg-cyan-600 bg-opacity-25 rounded-3xl">
       {IMGStatus !== imageDataMessage.done ? (
         IMGStatus
       ) : (
@@ -58,6 +59,7 @@ const SpacePage = ({username, current}) => {
           source={imageLinks}
         />
       )}
+      </div>
       <div>
         <Link to={`/regions`}>
           <button className="m-4 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">

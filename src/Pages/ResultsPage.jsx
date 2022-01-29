@@ -11,6 +11,7 @@ const imageDataMessage = {
 };
 
 const ResultsPage = ({ data, quizScore, current, username }) => {
+  useEffect(()=>window.scrollTo(0, 0), []);
   const [facts, setFacts] = useState();
   const [imageFullData, setImageFullData] = useState();
   const [IMGStatus, setIMGStatus] = useState();
@@ -50,9 +51,9 @@ const ResultsPage = ({ data, quizScore, current, username }) => {
     facts?.population !== undefined
       ? Math.round((facts?.population / 1000000) * 100) / 100
       : null;
-
+     
   return (
-    <div>
+    <div className="px-16 h-full">
       <h1 className="m-5 text-4xl font-bold">
         Welcome to {current.country}, {username}. 🥳
       </h1>
@@ -161,7 +162,7 @@ const ResultsPage = ({ data, quizScore, current, username }) => {
           {imageLinks?.length === undefined ? "images loading.." : imageLinks?.length} 📷
         </p>
       </div>
-
+      <div className="flex h-auto w-auto bg-cyan-600 bg-opacity-25 rounded-3xl">
       {IMGStatus !== imageDataMessage.done ? (
         IMGStatus
       ) : (
@@ -171,6 +172,7 @@ const ResultsPage = ({ data, quizScore, current, username }) => {
           source={imageLinks}
         />
       )}
+    </div>
       <div>
         <Link to={`/regions`}>
           <button className="m-4 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">

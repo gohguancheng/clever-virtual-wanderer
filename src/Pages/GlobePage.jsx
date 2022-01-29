@@ -1,8 +1,10 @@
 
 import RegionContainer from "../Components/RegionContainer";
+import { useEffect } from "react";
 
 
 const GlobePage = ({ data, regions, current, setCurrent, setQuizScore }) => {
+    useEffect(()=>window.scrollTo(0, 0), []);
     //*map regions buttons
     const regionalCountriesContainers = regions.map((element, i) => <RegionContainer key={i} data={data} region={Object.keys(element)[0]} regionCountries={element[Object.keys(element)[0]]} setCurrent={setCurrent} />);
    setQuizScore(prev => prev = 0);
