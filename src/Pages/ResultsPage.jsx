@@ -18,6 +18,9 @@ const ResultsPage = ({ data, quizScore, current, username }) => {
   const [imageLinks, setImageLinks] = useState();
   const { countryName } = useParams();
 
+  console.log(facts);
+  console.log(countryName);
+
   const imagesURL = imageCall(countryName);
 
   useEffect(() => {
@@ -29,14 +32,14 @@ const ResultsPage = ({ data, quizScore, current, username }) => {
         setIMGStatus(imageDataMessage.done);
       })
       .catch(() => setIMGStatus(imageDataMessage.noData));
-  }, [countryName]);
+  }, [countryName, data]);
 
   useEffect(() => {
     if (IMGStatus !== imageDataMessage.pending) {
       const imageSourceArrays = imageLinksArray(imageFullData, quizScore);
       setImageLinks(imageSourceArrays);
     }
-  }, [IMGStatus]);
+  }, [IMGStatus, data, imageFullData]);
 
   const selectedCountryFullData = data.filter(
     (e) => e.name.common === countryName
@@ -45,7 +48,7 @@ const ResultsPage = ({ data, quizScore, current, username }) => {
 
   useEffect(() => {
     setFacts(localData);
-  }, [countryName]);
+  }, [countryName, data]);
 
   const populationInMil =
     facts?.population !== undefined
@@ -55,18 +58,18 @@ const ResultsPage = ({ data, quizScore, current, username }) => {
   return (
     <div className="px-4 h-full">
       <h1 className="m-5 text-4xl font-bold">
-        Welcome to {current.country}, {username}. 🥳
+        Welcome to {countryName}, {username}. 🥳
       </h1>
       <h4 className="m-2 text-xl font-bold">
         You scored {quizScore} out of 7 in the earlier short pre-boarding quiz
-        for {current.country}! 🎉
+        for {countryName}! 🎉
       </h4>
       <h4 className="m-2 text-lg font-semibold">
-        Here are some facts about {current.country}:
+        Here are some facts about {countryName}:
       </h4>
       <ol>
         <li className="text-base">
-          The official name of {current.country} is:{" "}
+          The official name of {countryName} is:{" "}
           <span className="underline">
             {facts?.officialName === "" || facts?.officialName === undefined
               ? "Not Officially Defined"
@@ -75,7 +78,7 @@ const ResultsPage = ({ data, quizScore, current, username }) => {
           .
         </li>
         <li>
-          {current.country} is situated in the continent of:{" "}
+          {countryName} is situated in the continent of:{" "}
           <span className="underline">
             {facts?.continents === "" || facts?.continents === undefined
               ? "Not Officially Defined"
@@ -84,7 +87,7 @@ const ResultsPage = ({ data, quizScore, current, username }) => {
           .
         </li>
         <li>
-          The common currencies used in {current.country} is/are:{" "}
+          The common currencies used in {countryName} is/are:{" "}
           <span className="underline">
             {facts?.currencies === "" || facts?.currencies === undefined
               ? "Not Officially Defined"
@@ -93,7 +96,7 @@ const ResultsPage = ({ data, quizScore, current, username }) => {
           .
         </li>
         <li>
-          The common language(s) spoken in {current.country} is/are:{" "}
+          The common language(s) spoken in {countryName} is/are:{" "}
           <span className="underline">
             {facts?.languages === "" || facts?.languages === undefined
               ? "Not Officially Defined"
@@ -102,7 +105,7 @@ const ResultsPage = ({ data, quizScore, current, username }) => {
           .
         </li>
         <li>
-          A female citizen of {current.country} is known as a:{" "}
+          A female citizen of {countryName} is known as a:{" "}
           <span className="underline">
             {facts?.femaleCitizen === "" || facts?.femaleCitizen === undefined
               ? "Not Officially Defined"
@@ -111,7 +114,7 @@ const ResultsPage = ({ data, quizScore, current, username }) => {
           .
         </li>
         <li>
-          A male citizen of {current.country} is{" "}
+          A male citizen of {countryName} is{" "}
           {facts?.femaleCitizen === facts?.maleCitizen ? "also" : null} known as
           a:{" "}
           <span className="underline">
@@ -122,7 +125,7 @@ const ResultsPage = ({ data, quizScore, current, username }) => {
           .
         </li>
         <li>
-          The capital city of {current.country} is:{" "}
+          The capital city of {countryName} is:{" "}
           <span className="underline">
             {facts?.capital === "" || facts?.capital === undefined
               ? "Not Officially Defined"
@@ -138,10 +141,10 @@ const ResultsPage = ({ data, quizScore, current, username }) => {
               ? `${populationInMil} million`
               : facts?.population}
           </span>{" "}
-          people live in {current.country}.
+          people live in {countryName}.
         </li>
         <li>
-          As at 2021, {current.country}{" "}
+          As at 2021, {countryName}{" "}
           <span className="underline">
             {" "}
             is {facts?.isUNMember ? null : "not"} a member
@@ -151,7 +154,7 @@ const ResultsPage = ({ data, quizScore, current, username }) => {
       </ol>
       <div className="m-4">
         <h4 className="text-lg font-bold">
-          Below are some images related to {current.country}!
+          Below are some images related to {countryName}!
         </h4>
         <p className="m-2 text-sm font-semibold">
           Number of images unlocked based on quiz score = {quizScore * 2} (2 📷
@@ -167,7 +170,7 @@ const ResultsPage = ({ data, quizScore, current, username }) => {
         IMGStatus
       ) : (
         <ImageDisplay
-          country={current.country}
+          country={countryName}
           score={quizScore}
           source={imageLinks}
         />

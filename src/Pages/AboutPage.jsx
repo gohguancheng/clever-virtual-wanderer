@@ -19,7 +19,7 @@ const AboutPage = ({ username }) => {
 
 if (isLocked === false) {
       return(      
-      <div className="p-20 flex flex-col items-center justify-center">
+      <div className="p-40 flex flex-col items-center justify-center">
         <BounceLoader color={"rgb(34 197 94)"} loading={!isLocked} size={150} />
         <p className="m-2 text-lg font-semibold">
           🌎 Loading Globe.. 🌎
