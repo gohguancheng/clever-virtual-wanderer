@@ -2,8 +2,6 @@ import React from "react";
 import notFoundImage from "../Images/image-not-found.svg";
 
 const Flags = ({ country, src, currentCountry }) => {
-    console.log(notFoundImage);
-    console.log(src);
 
   if (country === currentCountry) {
     return (

@@ -7,19 +7,16 @@ import { useParams, Link } from "react-router-dom";
 const imageDataMessage = {
   pending: "Fetching Images Data from Unsplash",
   done: "Images Data Received",
-  noData: "Unable to receive Images Data from Unsplash",
+  noData: "Unable to receive Data from API. Please contact App owner or try again later. Thank you.",
 };
 
-const ResultsPage = ({ data, quizScore, current, username }) => {
+const ResultsPage = ({ data, quizScore, username }) => {
   useEffect(()=>window.scrollTo(0, 0), []);
   const [facts, setFacts] = useState();
   const [imageFullData, setImageFullData] = useState();
-  const [IMGStatus, setIMGStatus] = useState();
+  const [IMGStatusMessage, setIMGStatus] = useState();
   const [imageLinks, setImageLinks] = useState();
   const { countryName } = useParams();
-
-  console.log(facts);
-  console.log(countryName);
 
   const imagesURL = imageCall(countryName);
 
@@ -35,11 +32,11 @@ const ResultsPage = ({ data, quizScore, current, username }) => {
   }, [countryName, data]);
 
   useEffect(() => {
-    if (IMGStatus !== imageDataMessage.pending) {
+    if (IMGStatusMessage !== imageDataMessage.pending) {
       const imageSourceArrays = imageLinksArray(imageFullData, quizScore);
       setImageLinks(imageSourceArrays);
     }
-  }, [IMGStatus, data, imageFullData]);
+  }, [IMGStatusMessage, data, imageFullData]);
 
   const selectedCountryFullData = data.filter(
     (e) => e.name.common === countryName
@@ -73,7 +70,7 @@ const ResultsPage = ({ data, quizScore, current, username }) => {
           <span className="underline">
             {facts?.officialName === "" || facts?.officialName === undefined
               ? "Not Officially Defined"
-              : facts?.continents}
+              : facts?.officialName}
           </span>
           .
         </li>
@@ -165,9 +162,9 @@ const ResultsPage = ({ data, quizScore, current, username }) => {
           {imageLinks?.length === undefined ? "images loading.." : imageLinks?.length} 📷
         </p>
       </div>
-      <div className="flex h-auto w-auto bg-cyan-600 bg-opacity-25 rounded-xl">
-      {IMGStatus !== imageDataMessage.done ? (
-        IMGStatus
+      <div className="flex h-auto w-auto bg-cyan-600 bg-opacity-25 rounded-xl justify-center">
+      {IMGStatusMessage !== imageDataMessage.done ? (
+        IMGStatusMessage
       ) : (
         <ImageDisplay
           country={countryName}

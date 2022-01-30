@@ -92,7 +92,6 @@ function App() {
             <ResultsPage
               data={fullData}
               quizScore={quizScore}
-              current={current}
               username={username}
             />
           }

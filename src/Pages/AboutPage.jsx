@@ -10,12 +10,14 @@ const AboutPage = ({ username }) => {
   const [passphraseInput, setPassphraseInput] = useState(null);
   const [isLocked, setIsLocked] = useState(true);
   const navigate = useNavigate();
-  
+  const delayedNavigation = () => setTimeout(()=>navigate(`/regions`), 2000);
+
+
   useEffect(()=>{
     (passphraseInput === PASSPHRASE ? setIsLocked(false) : setIsLocked(true))
   },[passphraseInput]);
 
-  isLocked ? null : setTimeout(()=>navigate(`/regions`), 2500);
+  isLocked ? null : delayedNavigation();
 
 if (isLocked === false) {
       return(      

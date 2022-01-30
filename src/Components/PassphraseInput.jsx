@@ -9,8 +9,7 @@ const PassphraseInput = ({ username, setPassphraseInput, PASSPHRASE }) => {
 
   const passphraseChecker = () => {
     setPassphraseInput(input.current.value);
-    setStatusText("Incorrect passphrase detected. Passphrase should be case-sensitive.");
-    console.log(input.current.value);
+    setStatusText(`Incorrect passphrase [ ${input.current.value} ] detected. Passphrase should be case-sensitive.`);
     if (input.current.value === "") setStatusText(null);
   };
 
@@ -43,7 +42,7 @@ const PassphraseInput = ({ username, setPassphraseInput, PASSPHRASE }) => {
       <input
         ref={input}
         onChange={passphraseChecker}
-        className="m-1 shadow appearance-none border rounded w-fit py-1 px-8 text-gray-700 leading-tight text-center focus:outline-none focus:shadow-outline"
+        className="m-1 w-72 shadow appearance-none border rounded w-fit py-1 px-8 text-gray-700 leading-tight text-center focus:outline-none focus:shadow-outline"
         type="text"
         placeholder="Enter secret passphrase"
       ></input>
