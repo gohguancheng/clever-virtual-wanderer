@@ -9,7 +9,7 @@ const PassphraseInput = ({ username, setPassphraseInput, PASSPHRASE }) => {
 
   const passphraseChecker = () => {
     setPassphraseInput(input.current.value);
-    setStatusText(`Incorrect passphrase [ ${input.current.value} ] detected. Passphrase should be case-sensitive.`);
+    setStatusText(`Input [ ${input.current.value} ] detected. Passphrase should be case-sensitive.`);
     if (input.current.value === "") setStatusText(null);
   };
 
